@@ -32,6 +32,13 @@ body,
 #app {
   height: 100%;
 }
+//SVG icon样式
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
 
 //布局样式
 #app {
