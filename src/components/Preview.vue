@@ -1,5 +1,7 @@
 <template>
-  
+  <div id="Preview">
+      
+  </div>
 </template>
 
 <style lang="less">

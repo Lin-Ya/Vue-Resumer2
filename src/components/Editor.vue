@@ -1,7 +1,5 @@
 <template>
-  <div>
-    dasfadsfasddsafds
-    <a href="#">nihao</a>
+  <div id="Editor">
   </div>
 </template>
 
@@ -11,6 +9,6 @@
 
 <script>
 export default {
-  
+  name:'Editor',
 }
 </script>
