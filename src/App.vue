@@ -1,28 +1,31 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    daasdsadasdsf
+    <Editor/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import TopBar from "./components/TopBar";
+import Editor from "./components/Editor";
+import Preview from "./components/Preview";
+import "normalize.css";
+
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    TopBar,
+    Editor,
+    Preview
   }
-}
+};
 </script>
 
-<style>
+<style use="less">
+@import "./assets/reset.css";
+@import "./assets/normalize.css";
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
 }
 </style>
