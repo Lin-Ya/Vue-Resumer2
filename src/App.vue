@@ -33,35 +33,39 @@ body,
   height: 100%;
 }
 
+//布局样式
 #app {
   width: 100%;
-  background-color: blue;
   display: flex;
   flex-direction: column;
   min-width: 1140px;
   .topbar {
     width: 100%;
     height: 88px;
-    background-color: red;
+    z-index: 1;
   }
   main {
     flex: 1;
     display: flex;
-    background-color: #fff;
+    background-color: #cfcfcf;
     .editor {
       width: 40em;
-      background-color: green;
-      margin: 16px 8px;
+      margin: 16px 8px 16px 16px;
       border-radius: 4px;
       overflow: hidden;
     }
     .preview {
       flex: 1;
-      background-color: yellow;
-      margin: 16px 8px;
+      margin: 16px 16px 16px 8px;
       border-radius: 4px;
       overflow: hidden;
     }
   }
+}
+.topbar,
+.editor,
+.preview {
+  background-color: #fff;
+  box-shadow: 0 1px 6px 1px #444444a1;
 }
 </style>
