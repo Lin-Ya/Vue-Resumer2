@@ -40,8 +40,15 @@
       </ul>
     </nav>
     <div class="subfield">
-      <span>
-      </span>
+      <nav>
+        <div v-bind:class="{active: navselected === 'profile'}">profile</div>
+        <div v-bind:class="{active: navselected === 'education'}">education</div>
+        <div v-bind:class="{active: navselected === 'workHistory'}">workHistory</div>
+        <div v-bind:class="{active: navselected === 'projects'}">projects</div>
+        <div v-bind:class="{active: navselected === 'awards'}">awards</div>
+        <div v-bind:class="{active: navselected === 'contacts'}">contacts</div>
+        <div v-bind:class="{active: navselected === 'others'}">others</div>
+      </nav>
     </div>
   </div>
 </template>
@@ -75,6 +82,12 @@
   .subfield {
     flex: 1;
     overflow: hidden;
+    div {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
   }
 }
 </style>
@@ -83,7 +96,7 @@
 export default {
   data() {
     return {
-      navselected: "",
+      navselected: "profile",
       resume: {
         config: [
           { field: "profile" },
