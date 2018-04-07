@@ -11,8 +11,8 @@
     </nav>
     <div class="subfield">
       <nav>
-        <div v-for="item in resume.config" v-bind:key="item.field" v-bind:class="{active: navselected === item.field}">
-          {{item.field}}
+        <div class="subfieldItems" v-for="item in resume.config" v-bind:key="item.field" v-bind:class="{active: navselected === item.field}">
+          <EditorTemplate v-bind:field="resume[item.field]"/>
         </div>
       </nav>
     </div>
@@ -48,7 +48,7 @@
     .subfield {
       flex: 1;
       overflow: hidden;
-      div {
+      .subfieldItems {
         display: none;
         &.active {
           display: block;
@@ -59,6 +59,7 @@
 </style>
 
 <script>
+import EditorTemplate from './EditorTemplate'
   export default {
     data() {
       return {
@@ -86,16 +87,19 @@
               field: "others"
             }
           ],
-          profile: [],
-          education: [],
-          workHistory: [],
-          projects: [],
-          awards: [],
-          contacts: [],
-          others: []
+          profile: [1],
+          education: [2],
+          workHistory: [3],
+          projects: [4],
+          awards: [5],
+          contacts: [6],
+          others: [7]
         }
       };
     },
-    computed: {}
+    computed: {},
+    components: {
+      EditorTemplate
+    }
   };
 </script>
