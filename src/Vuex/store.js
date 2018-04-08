@@ -7,39 +7,57 @@ const state = {
   navselected: "profile",
   resume: {
     profile: {
-			field:'profile',
+      field: 'profile',
+      label: [{
+					key: 'name'
+        },
+        {
+					key: 'breath'
+        },
+        {
+					key: 'city'
+				}
+      ],
+      data: [{
+        name: '',
+        breath: '',
+        city: ''
+      }]
+    },
+    education: {
+      field: 'education',
 
-		},
-		education: {
-			field:'education',
+    },
+    workHistory: {
+      field: 'workHistory',
 
-		},
-		workHistory: {
-			field:'workHistory',
+    },
+    projects: {
+      field: 'projects',
 
-		},
-		projects: {
-			field:'projects',
+    },
+    awards: {
+      field: 'awards',
 
-		},
-		awards: {
-			field:'awards',
+    },
+    contacts: {
+      field: 'contacts',
 
-		},
-		contacts: {
-			field:'contacts',
+    },
+    others: {
+      field: 'others',
 
-		},
-		others: {
-			field:'others',
-
-		},
+    },
   }
 }
 
 const mutations = {
-	switchTab(state,target){
-		this.state.navselected = target;
+  switchTab(state, target) {
+    this.state.navselected = target;
+	},
+	updateForm(state,key,value) {
+		console.log(key)
+		console.log(value)
 	}
 }
 
@@ -47,3 +65,4 @@ export default new Vuex.Store({
   state,
   mutations
 })
+

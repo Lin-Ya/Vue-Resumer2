@@ -47,7 +47,7 @@
   }
   .subfield {
     flex: 1;
-    overflow: hidden;
+    overflow: auto;
     .subfieldItems {
       display: none;
       &.active {
