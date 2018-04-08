@@ -12,7 +12,7 @@
     <div class="subfield">
       <nav>
         <div class="subfieldItems" v-for="item in resume.config" v-bind:key="item.field" v-bind:class="{active: navselected === item.field}">
-          <EditorTemplate v-bind:field="resume[item.field]"/>
+          <EditorTemplate v-bind:class="item.field" v-bind:field="resume[item.field]"/>
         </div>
       </nav>
     </div>
