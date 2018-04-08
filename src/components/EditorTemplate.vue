@@ -7,7 +7,7 @@
 		</div>
 		<div class="content">
 			<el-form :label-position="'top'" v-for="(datakey,dataindex) in field.data" v-bind:key="datakey" class="dataItems">
-				<el-button type="danger" icon="el-icon-delete" circle></el-button>
+				<el-button class="deleteButton" type="danger" icon="el-icon-delete" circle v-on:click="remove(field.field,dataindex)"></el-button>
 				<el-form-item v-bind:label="item.cn" v-for="item in field.label" v-bind:key="item.key">
 					<el-input  v-on:input="updateForm(field.field,dataindex,item.key,$event)"></el-input>
 				</el-form-item>
@@ -65,6 +65,13 @@ export default {
 				object.data[model.key] = ''
 			}
 			this.$store.commit('addFieldData',object)
+		},
+		//删除
+		remove(field,dataindex){
+			let object = {};
+			object.field = this.field.field;
+			object.index = dataindex;
+			this.$store.commit('removeFieldData',object)
 		}
 	},
 	computed: {

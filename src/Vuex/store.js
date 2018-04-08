@@ -151,6 +151,11 @@ const mutations = {
 	addFieldData(state,object){
 		let field = object.field;
 		this.state.resume[field].data.push(object.data)
+	},
+	removeFieldData(state,object){
+		//用于remove子信息里面的data。object是一个来自按钮处理的一个对象。有field和index
+		//根据对象查找到对应的data并从数组中去除。
+		this.state.resume[object.field].data.splice(object.index,1)
 	}
 }
 
