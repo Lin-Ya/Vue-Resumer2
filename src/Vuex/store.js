@@ -6,41 +6,39 @@ Vue.use(Vuex)
 const state = {
   navselected: "profile",
   resume: {
-    config: [{
-        field: "profile"
-      },
-      {
-        field: "education"
-      },
-      {
-        field: "workHistory"
-      },
-      {
-        field: "projects"
-      },
-      {
-        field: "awards"
-      },
-      {
-        field: "contacts"
-      },
-      {
-        field: "others"
-      }
-    ],
-    profile: [1],
-    education: [2],
-    workHistory: [3],
-    projects: [4],
-    awards: [5],
-    contacts: [6],
-    others: [7]
+    profile: {
+			field:'profile',
+
+		},
+		education: {
+			field:'education',
+
+		},
+		workHistory: {
+			field:'workHistory',
+
+		},
+		projects: {
+			field:'projects',
+
+		},
+		awards: {
+			field:'awards',
+
+		},
+		contacts: {
+			field:'contacts',
+
+		},
+		others: {
+			field:'others',
+
+		},
   }
 }
 
 const mutations = {
 	switchTab(state,target){
-		console.log('set')
 		this.state.navselected = target;
 	}
 }

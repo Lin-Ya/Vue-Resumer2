@@ -2,7 +2,7 @@
   <div id="Editor">
     <nav class="field">
       <ul>
-        <li v-for="item in resume.config" v-bind:key="item.field" v-bind:class="{active: navselected === item.field}" v-on:click="switchNavTab(item.field)">
+        <li v-for="item in resume" v-bind:key="item.field" v-bind:class="{active: navselected === item.field}" v-on:click="switchNavTab(item.field)">
           <svg class="icon" aria-hidden="true">
             <use v-bind:xlink:href="`#icon-${item.field}`"></use>
           </svg>
@@ -11,7 +11,7 @@
     </nav>
     <div class="subfield">
       <nav>
-        <div class="subfieldItems" v-for="item in resume.config" v-bind:key="item.field" v-bind:class="{active: navselected === item.field}">
+        <div class="subfieldItems" v-for="item in resume" v-bind:key="item.field" v-bind:class="{active: navselected === item.field}">
           <EditorTemplate v-bind:class="item.field" v-bind:field="resume[item.field]"/>
         </div>
       </nav>
