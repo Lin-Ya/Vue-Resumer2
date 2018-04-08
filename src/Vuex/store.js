@@ -55,9 +55,8 @@ const mutations = {
   switchTab(state, target) {
     this.state.navselected = target;
 	},
-	updateForm(state,key,value) {
-		console.log(key)
-		console.log(value)
+	updateForm(state,{field,key,value}) {
+		this.state.resume[field].data[0][key] = value
 	}
 }
 

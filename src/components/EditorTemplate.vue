@@ -7,7 +7,7 @@
 		<div class="content">
 			<el-form :label-position="'top'">
 				<el-form-item v-bind:label="item.key" v-for="item in field.label" v-bind:key="item.key">
-					<el-input v-bind:value="item.value"></el-input>
+					<el-input  v-on:input="updateForm(field.field,item.key,$event)"></el-input>
 				</el-form-item>
 			</el-form>
 		</div>
@@ -25,9 +25,21 @@
 </style>
 
 <script>
+import store from "../Vuex/store.js";
 export default {
-  computed: {},
+	store,
+  data(){
+		return {
+			state: this.$store.state
+		}
+	},
   //给每一个模板传入的field是一大类的数据，包括其简历条目类别以及内容。
-  props: ["field"]
+	props: ["field"],
+	methods: {
+		updateForm(field,key,$event){
+			//触发updateForm方法，用于更新input内容到store里面。
+			this.$store.commit('updateForm',{field,key,value:$event})
+		}
+	}
 };
 </script>
