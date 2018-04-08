@@ -2,13 +2,12 @@
 	<div class="container">
 		<div class="header">
 			<h1 id="fieldName">{{field.title}}</h1>
-			<!-- {{dataindex}} -->
 			<el-button type="success" v-show="field.field !== 'profile'" v-on:click="add()">添加</el-button>
 		</div>
 		<div class="content">
 			<el-form :label-position="'top'" v-for="(datakey,dataindex) in field.data" v-bind:key="datakey" class="dataItems">
-				<el-button class="deleteButton" type="danger" icon="el-icon-delete" circle v-on:click="remove(field.field,dataindex)"></el-button>
-				<el-form-item v-bind:label="item.cn" v-for="item in field.label" v-bind:key="item.key">
+				<i class="deleteButton el-icon-delete" v-on:click="remove(field.field,dataindex)"></i>
+				<el-form-item class="inputLabel" v-bind:label="item.cn" v-for="item in field.label" v-bind:key="item.key">
 					<el-input  v-bind:value="field.data[dataindex][item.key]" v-on:input="updateForm(field.field,dataindex,item.key,$event)"></el-input>
 				</el-form-item>
 			</el-form>
@@ -32,8 +31,24 @@
 		}
 	}
 	.content {
+		position: relative;
 		.dataItems {
 			border-bottom: 3px solid #ccc;
+			margin-bottom: 8px;
+		}
+		.deleteButton {
+			font-size: 22px;
+			cursor: pointer;
+			position: absolute;
+			top: 12px;
+			right: 0;
+			color: #808080;
+			&:hover {
+				color: #a00000;
+			}
+		}
+		label {
+			font-size: 16px;
 		}
 	}
 }
