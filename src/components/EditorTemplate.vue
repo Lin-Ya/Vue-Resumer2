@@ -1,12 +1,12 @@
 <template>
 	<div class="container">
 		<div class="header">
-			<h1 id="fieldName">{{field.field}}</h1>
-			<el-button>添加</el-button>
+			<h1 id="fieldName">{{field.title}}</h1>
+			<el-button v-show="field.field !== 'profile'">添加</el-button>
 		</div>
 		<div class="content">
 			<el-form :label-position="'top'" v-for="(datakey,dataindex) in field.data" v-bind:key="datakey">
-				<el-form-item v-bind:label="item.key" v-for="item in field.label" v-bind:key="item.key">
+				<el-form-item v-bind:label="item.cn" v-for="item in field.label" v-bind:key="item.key">
 					<el-input  v-on:input="updateForm(field.field,dataindex,item.key,$event)"></el-input>
 				</el-form-item>
 			</el-form>
