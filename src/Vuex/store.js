@@ -64,18 +64,6 @@ const state = {
 				time: '',
 				position: '',
 				content: ''
-			},
-			{
-				company: '',
-				time: '',
-				position: '',
-				content: ''
-			},
-			{
-				company: '',
-				time: '',
-				position: '',
-				content: ''
 			}
 			]
 		},
@@ -148,14 +136,21 @@ const mutations = {
 	}) {
 		this.state.resume[field].data[dataindex][key] = value
 	},
-	addFieldData(state,object){
+	addFieldData(state, object) {
 		let field = object.field;
 		this.state.resume[field].data.push(object.data)
 	},
-	removeFieldData(state,object){
+	removeFieldData(state, object) {
+		let data = this.state.resume[object.field].data
 		//用于remove子信息里面的data。object是一个来自按钮处理的一个对象。有field和index
 		//根据对象查找到对应的data并从数组中去除。
-		this.state.resume[object.field].data.splice(object.index,1)
+		if (data.length > 1) {
+			data.splice(object.index, 1)
+		} else {
+			for (let key in data[0]) {
+				data[0][key] = "";
+			}
+		}
 	}
 }
 

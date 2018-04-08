@@ -9,7 +9,7 @@
 			<el-form :label-position="'top'" v-for="(datakey,dataindex) in field.data" v-bind:key="datakey" class="dataItems">
 				<el-button class="deleteButton" type="danger" icon="el-icon-delete" circle v-on:click="remove(field.field,dataindex)"></el-button>
 				<el-form-item v-bind:label="item.cn" v-for="item in field.label" v-bind:key="item.key">
-					<el-input  v-on:input="updateForm(field.field,dataindex,item.key,$event)"></el-input>
+					<el-input  v-bind:value="field.data[dataindex][item.key]" v-on:input="updateForm(field.field,dataindex,item.key,$event)"></el-input>
 				</el-form-item>
 			</el-form>
 		</div>
