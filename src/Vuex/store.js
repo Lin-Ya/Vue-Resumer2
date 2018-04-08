@@ -42,6 +42,11 @@ const state = {
 				school: '',
 				time: '',
 				major: ''
+			},
+			{
+				school: '',
+				time: '',
+				major: ''
 			}
 			]
 		},
@@ -55,6 +60,18 @@ const state = {
 				{ key: 'content', cn: '职责简介' }
 			],
 			data: [{
+				company: '',
+				time: '',
+				position: '',
+				content: ''
+			},
+			{
+				company: '',
+				time: '',
+				position: '',
+				content: ''
+			},
+			{
 				company: '',
 				time: '',
 				position: '',
@@ -130,6 +147,10 @@ const mutations = {
 		value
 	}) {
 		this.state.resume[field].data[dataindex][key] = value
+	},
+	addFieldData(state,object){
+		let field = object.field;
+		this.state.resume[field].data.push(object.data)
 	}
 }
 
