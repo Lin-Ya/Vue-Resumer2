@@ -5,9 +5,9 @@
 			<el-button>添加</el-button>
 		</div>
 		<div class="content">
-			<el-form :label-position="'top'">
+			<el-form :label-position="'top'" v-for="(datakey,dataindex) in field.data" v-bind:key="datakey">
 				<el-form-item v-bind:label="item.key" v-for="item in field.label" v-bind:key="item.key">
-					<el-input  v-on:input="updateForm(field.field,item.key,$event)"></el-input>
+					<el-input  v-on:input="updateForm(field.field,dataindex,item.key,$event)"></el-input>
 				</el-form-item>
 			</el-form>
 		</div>
@@ -36,9 +36,9 @@ export default {
   //给每一个模板传入的field是一大类的数据，包括其简历条目类别以及内容。
 	props: ["field"],
 	methods: {
-		updateForm(field,key,$event){
+		updateForm(field,dataindex,key,$event){
 			//触发updateForm方法，用于更新input内容到store里面。
-			this.$store.commit('updateForm',{field,key,value:$event})
+			this.$store.commit('updateForm',{field,dataindex,key,value:$event})
 		}
 	}
 };

@@ -9,20 +9,26 @@ const state = {
     profile: {
       field: 'profile',
       label: [{
-					key: 'name'
+          key: 'name'
         },
         {
-					key: 'breath'
+          key: 'breath'
         },
         {
-					key: 'city'
-				}
+          key: 'city'
+        }
       ],
       data: [{
-        name: '',
-        breath: '',
-        city: ''
-      }]
+          name: '',
+          breath: '',
+          city: ''
+        },
+        {
+          name: '',
+          breath: '',
+          city: ''
+        }
+      ]
     },
     education: {
       field: 'education',
@@ -54,14 +60,18 @@ const state = {
 const mutations = {
   switchTab(state, target) {
     this.state.navselected = target;
-	},
-	updateForm(state,{field,key,value}) {
-		this.state.resume[field].data[0][key] = value
-	}
+  },
+  updateForm(state, {
+    field,
+    dataindex,
+    key,
+    value
+  }) {
+    this.state.resume[field].data[dataindex][key] = value
+  }
 }
 
 export default new Vuex.Store({
   state,
   mutations
 })
-
