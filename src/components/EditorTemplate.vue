@@ -6,8 +6,10 @@
 		</div>
 		<div class="content">
 			<el-form :label-position="'top'" v-for="(datakey,dataindex) in field.data" v-bind:key="datakey" class="dataItems">
-				<i class="deleteButton el-icon-delete" v-on:click="remove(field.field,dataindex)"></i>
-				<el-form-item class="inputLabel" v-bind:label="item.cn" v-for="item in field.label" v-bind:key="item.key">
+				<el-tooltip class="item" effect="dark" content="移除或清空" placement="left">
+          <i class="deleteButton el-icon-delete" v-on:click="remove(field.field,dataindex)"></i>
+				</el-tooltip>
+        <el-form-item class="inputLabel" v-bind:label="item.cn" v-for="item in field.label" v-bind:key="item.key">
 					<el-input  v-bind:value="field.data[dataindex][item.key]" v-on:input="updateForm(field.field,dataindex,item.key,$event)"></el-input>
 				</el-form-item>
 			</el-form>
