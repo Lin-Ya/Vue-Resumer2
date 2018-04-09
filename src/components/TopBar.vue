@@ -4,8 +4,9 @@
       <span>Resume Editor</span>
     </div>
     <div class="action">
-      <el-button type="success">注册</el-button>
-      <el-button>登录</el-button>
+      <el-button type="success" v-on:click="showSignIn()">注册</el-button>
+      <el-button v-on:click="showLogIn()">登录</el-button>
+      <MyDialogMode/>
       <el-button v-on:click="EnterPreview()">预览</el-button>
     </div>
   </div>
@@ -33,15 +34,28 @@
 </style>
 
 <script>
+import MyDialogMode from './MyDialogMode'
   export default {
     data(){
       return {
+        enterTo: ''
       }
     },
     methods: {
       EnterPreview(){
         this.$emit('EnterPreview');
+      },
+      showSignIn(){
+        this.enterTo = 'signIn'
+        console.log(this.enterTo)
+      },
+      showLogIn(){
+        this.enterTo = 'LogIn'
+        console.log(this.enterTo)
       }
+    },
+    components:{
+      MyDialogMode
     }
   };
 </script>
