@@ -15,6 +15,13 @@
       </div>
     </div>
     <div class="page">
+      <section class="profile">
+        <ul v-for="item in filterArray(resume.profile.data)" v-bind:key="item.name">
+          <li>{{item.name||"你好"}}</li>
+          <li>{{item.birth}}</li>
+          <li>{{item.major}}</li>
+        </ul>
+      </section>
       <section class="education" v-if="filterArray(resume.education.data).length > 0">
         <ul v-for="item in filterArray(resume.education.data)" v-bind:key="item.name">
           <li>{{item.school}}</li>
