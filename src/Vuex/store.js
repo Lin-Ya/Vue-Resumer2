@@ -11,7 +11,7 @@ const state = {
 			title: '个人信息',
 			label: [
 				{ key: 'name', cn: '姓名' },
-				{ key: 'breath', cn: '出生年月' },
+				{ key: 'birth', cn: '出生年月' },
 				{ key: 'genter', cn: '性别' },
 				{ key: 'city', cn: '所在城市' },
 				{ key: 'workTimes', cn: '工作时间' },
@@ -21,7 +21,7 @@ const state = {
 			],
 			data: [{
 				name: '',
-				breath: '',
+				birth: '',
 				city: '',
 				workTimes: '',
 				status: '',
