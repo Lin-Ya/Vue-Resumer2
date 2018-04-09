@@ -6,7 +6,7 @@
     <div class="action">
       <el-button type="success">注册</el-button>
       <el-button>登录</el-button>
-      <el-button>预览</el-button>
+      <el-button v-on:click="EnterPreview()">预览</el-button>
     </div>
   </div>
 </template>
@@ -33,5 +33,15 @@
 </style>
 
 <script>
-  export default {};
+  export default {
+    data(){
+      return {
+      }
+    },
+    methods: {
+      EnterPreview(){
+        this.$emit('EnterPreview');
+      }
+    }
+  };
 </script>

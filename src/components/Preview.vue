@@ -30,6 +30,9 @@
         </ul>
       </section>
     </div>
+    <el-tooltip class="item" effect="dark" content="点击退出预览" placement="right">
+      <el-button class="exitButton" type="info" icon="el-icon-close" circle v-on:click="ExitPreview()"></el-button>
+    </el-tooltip>  
   </div>
 </template>
 
@@ -94,6 +97,9 @@
       }
     }
   }
+  .exitButton {
+    display: none;
+  }
 }
 </style>
 
@@ -125,6 +131,9 @@ export default {
       //下面用了箭头函数，讲arr里面的
       return arr.filter(item => !isEmpty(item))
     },
+    ExitPreview(){
+      this.$emit('ExitPreview')
+    }
   }
 };
 </script>

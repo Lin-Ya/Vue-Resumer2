@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
-    <TopBar class="topbar" />
+  <div id="app" v-bind:class="{PreviewMode: PreviewMode === true}">
+    <TopBar class="topbar" v-on:EnterPreview="EnterPreview()" />
     <main>
       <Editor class="editor" />
-      <Preview class="preview" />
+      <Preview class="preview" v-on:ExitPreview="ExitPreview()" />
     </main>
   </div>
 </template>
@@ -20,6 +20,20 @@
       TopBar,
       Editor,
       Preview
+    },
+    data() {
+      return {
+        PreviewMode: false
+      }
+    },
+    methods: {
+      EnterPreview() {
+        this.PreviewMode = true;
+        // console.log(this.PreviewMode)
+      },
+      ExitPreview() {
+        this.PreviewMode = false;
+      }
     }
   };
 </script>
@@ -44,7 +58,7 @@
   
   //布局样式
   #app {
-    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -78,5 +92,28 @@
   .preview {
     background-color: #fff;
     box-shadow: 0 1px 6px 1px #444444a1;
+  }
+  
+  #app {
+    &.PreviewMode {
+      .topbar,
+      .editor {
+        display: none;
+      }
+      .preview {
+        margin: 40px auto;
+        width: 800px;
+        flex: none;
+        .actions {
+          display: none;
+        }
+        .exitButton {
+          display: block;
+          position: fixed;
+          top: 19px;
+          right: calc( 50% - 452px);
+        }
+      }
+    }
   }
 </style>
