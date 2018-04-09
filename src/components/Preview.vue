@@ -15,7 +15,13 @@
       </div>
     </div>
     <div class="page">
-      {{resume}}
+      <section class="education" v-if="filterArray(resume.education.data).length > 0">
+        <ul v-for="item in filterArray(resume.education.data)" v-bind:key="item.name">
+          <li>{{item.school}}</li>
+          <li>{{item.time}}</li>
+          <li>{{item.major}}</li>
+        </ul>
+      </section>
     </div>
   </div>
 </template>
@@ -92,6 +98,26 @@ export default {
     resume() {
       return this.$store.state.resume;
     }
+  },
+  methods: {
+    filterArray(arr){
+      //isEmpty是一个用来判断对象里面是否有值的函数。只要有一个key有value，就返回false。
+      //isEmpty返回的是布尔，而filter函数则是根据布尔来返回一个新的数组的，这样可以达到筛选不为空的数据展示在页面上
+      let isEmpty = function(obj){
+        let empty = true;
+        for(let key in obj){
+        //一旦有value，就不为空，就可以退出循环了
+          if(obj[key]){
+            empty = false;
+            break;
+          }
+        }
+        //注意，一定要循环结束以后再return布尔。如果再循环里面return，就永远只是遍历了第一个key。
+        return empty;
+      }
+      //下面用了箭头函数，讲arr里面的
+      return arr.filter(item => !isEmpty(item))
+    },
   }
 };
 </script>
