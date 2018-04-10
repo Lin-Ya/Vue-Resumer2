@@ -121,7 +121,12 @@ const state = {
 			}
 			]
 		},
+	},
+	user: {
+		id: '',
+		username: ''
 	}
+
 }
 
 const mutations = {
@@ -151,6 +156,12 @@ const mutations = {
 				data[0][key] = "";
 			}
 		}
+	},
+	setUser(state, payload) {
+		//payload(id,username) =覆盖=> state.user
+		Object.assign(state.user, payload)
+		console.log(state.user)
+		console.log('最后一步了')
 	}
 }
 

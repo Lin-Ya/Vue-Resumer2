@@ -5,7 +5,7 @@
     </div>
     <div class="action">
       <MyDialogMode :class="enterTo" @ExitDialog="ExitDialog()">
-        <SignInForm v-if="enterTo === 'signIn'" @SwitchDialog="SwitchDialog()"/>
+        <SignInForm v-if="enterTo === 'signIn'" @SwitchDialog="SwitchDialog()" @success="setUser($event)"/>
         <LogInForm v-else @SwitchDialog="SwitchDialog()"/>
       </MyDialogMode>
       <el-button type="success" @click="showSignIn()">注册</el-button>
@@ -41,10 +41,12 @@
 </style>
 
 <script>
+import store from '../Vuex/store.js'
 import MyDialogMode from './MyDialogMode';
 import SignInForm from './SignInForm';
 import LogInForm from './LogInForm';
   export default {
+    store,
     data(){
       return {
         enterTo: ''
@@ -54,20 +56,13 @@ import LogInForm from './LogInForm';
       EnterPreview(){
         this.$emit('EnterPreview');
       },
+
+      //用enterTo来存储切换注册和登录的值。
       showSignIn(){
-        this.enterTo = 'signIn'
-        console.log(this.enterTo)
+        this.enterTo = 'signIn';
       },
       showLogIn(){
-        this.enterTo = 'logIn'
-        console.log(this.enterTo)
-      },
-      isDialog(){
-        if(this.enterTo === 'signIn'||'logIn'){
-          return true;
-        }else {
-          return false;
-        }
+        this.enterTo = 'logIn';
       },
       ExitDialog(){
         this.enterTo = '';
@@ -78,6 +73,14 @@ import LogInForm from './LogInForm';
         }else {
           this.enterTo = 'logIn';
         }
+      },
+
+      //当注册成功以后，会触发success事件，来到这里设置username和id到数据store里
+      //执行store里的setUser方法。
+      setUser(payload){
+        console.log('来到了topbar，我们看看payload有什么')
+        console.log(payload)
+        this.$store.commit('setUser',payload)
       }
     },
     components:{
