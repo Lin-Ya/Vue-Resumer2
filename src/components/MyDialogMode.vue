@@ -6,7 +6,8 @@
           <i id="CloseButton" class="el-icon-circle-close" @click="Exit()"></i>
         </div>
         <div class="form">
-
+          <SignInForm v-if="this.title === 'signIn'"/>
+          <LogInForm v-else-if="this.title === 'logIn'"/>
         </div>
       </div>
   </div>
@@ -43,8 +44,13 @@
 </style>
 
 <script>
+import SignInForm from './SignInForm';
+import LogInForm from './LogInForm';
 export default {
   props:['title'],
+  components:{
+    SignInForm,LogInForm
+  },
   methods: {
     Exit(){
       this.$emit('ExitDialog')
