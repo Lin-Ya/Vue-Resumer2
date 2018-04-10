@@ -42,7 +42,6 @@ export default {
       //本地就可以根据这个loginedUser来获取用户id和用户名，好给数据打标签。
       user.signUp().then(
         (loginedUser)=> {
-          console.log(loginedUser)
           //给父组件触发一个success事件，带上返回得到的username和id。
           //这里的前提是在父组件引入了vuex
           this.$emit('success',{
@@ -55,7 +54,6 @@ export default {
       );
     },
     SwitchDialog() {
-      console.log(1);
       this.$emit("SwitchDialog");
     }
   }

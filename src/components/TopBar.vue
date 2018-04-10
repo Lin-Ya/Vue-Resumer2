@@ -8,6 +8,7 @@
         <SignInForm v-if="enterTo === 'signIn'" @SwitchDialog="SwitchDialog()" @success="setUser($event)"/>
         <LogInForm v-else @SwitchDialog="SwitchDialog()"/>
       </MyDialogMode>
+      {{user.username}}
       <el-button type="success" @click="showSignIn()">注册</el-button>
       <el-button @click="showLogIn()">登录</el-button>
       <el-button @click="EnterPreview()">预览</el-button>
@@ -78,13 +79,17 @@ import LogInForm from './LogInForm';
       //当注册成功以后，会触发success事件，来到这里设置username和id到数据store里
       //执行store里的setUser方法。
       setUser(payload){
-        console.log('来到了topbar，我们看看payload有什么')
-        console.log(payload)
         this.$store.commit('setUser',payload)
-      }
+        this.enterTo = '';
+      },
     },
-    components:{
+    components: {
       MyDialogMode,SignInForm,LogInForm
+    },
+    computed: {
+      user(){
+        return this.$store.state.user;
+      }
     }
   };
 </script>
