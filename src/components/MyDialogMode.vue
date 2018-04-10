@@ -2,12 +2,11 @@
   <div id="MyDialogMode">
       <div class="container">
         <div class="header">
-          welcome to {{this.title}}
+          <h1>Resume Editor</h1>
           <i id="CloseButton" class="el-icon-circle-close" @click="Exit()"></i>
         </div>
         <div class="form">
-          <SignInForm v-if="this.title === 'signIn'"/>
-          <LogInForm v-else-if="this.title === 'logIn'"/>
+          <slot></slot>
         </div>
       </div>
   </div>
@@ -27,7 +26,7 @@
     transform: translate(-50%,-50%);
     position: fixed;
     width: 480px;
-    height: 320px;
+    height: 500px;
     background-color: #E75552;
     position: relative;
     .header {
@@ -44,13 +43,8 @@
 </style>
 
 <script>
-import SignInForm from './SignInForm';
-import LogInForm from './LogInForm';
+
 export default {
-  props:['title'],
-  components:{
-    SignInForm,LogInForm
-  },
   methods: {
     Exit(){
       this.$emit('ExitDialog')

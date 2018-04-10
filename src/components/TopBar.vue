@@ -4,7 +4,10 @@
       <span>Resume Editor</span>
     </div>
     <div class="action">
-      <MyDialogMode :title="enterTo" :class="enterTo" @ExitDialog="ExitDialog()"/>
+      <MyDialogMode :class="enterTo" @ExitDialog="ExitDialog()">
+        <SignInForm v-if="enterTo === 'signIn'" @SwitchDialog="SwitchDialog()"/>
+        <LogInForm v-else @SwitchDialog="SwitchDialog()"/>
+      </MyDialogMode>
       <el-button type="success" @click="showSignIn()">注册</el-button>
       <el-button @click="showLogIn()">登录</el-button>
       <el-button @click="EnterPreview()">预览</el-button>
@@ -38,7 +41,9 @@
 </style>
 
 <script>
-import MyDialogMode from './MyDialogMode'
+import MyDialogMode from './MyDialogMode';
+import SignInForm from './SignInForm';
+import LogInForm from './LogInForm';
   export default {
     data(){
       return {
@@ -66,10 +71,17 @@ import MyDialogMode from './MyDialogMode'
       },
       ExitDialog(){
         this.enterTo = '';
+      },
+      SwitchDialog(){
+        if(this.enterTo === 'logIn'){
+          this.enterTo = 'signIn';
+        }else {
+          this.enterTo = 'logIn';
+        }
       }
     },
     components:{
-      MyDialogMode
+      MyDialogMode,SignInForm,LogInForm
     }
   };
 </script>
