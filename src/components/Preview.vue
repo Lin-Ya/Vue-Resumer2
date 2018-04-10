@@ -75,7 +75,7 @@
           transform: rotate(-45deg);
         }
       }
-    }
+    } 
     .tab {
       margin-left: 16px;
       width: 280px;

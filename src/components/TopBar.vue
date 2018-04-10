@@ -4,10 +4,10 @@
       <span>Resume Editor</span>
     </div>
     <div class="action">
-      <el-button type="success" v-on:click="showSignIn()">注册</el-button>
-      <el-button v-on:click="showLogIn()">登录</el-button>
-      <MyDialogMode/>
-      <el-button v-on:click="EnterPreview()">预览</el-button>
+      <MyDialogMode :title="enterTo" :class="enterTo" @ExitDialog="ExitDialog()"/>
+      <el-button type="success" @click="showSignIn()">注册</el-button>
+      <el-button @click="showLogIn()">登录</el-button>
+      <el-button @click="EnterPreview()">预览</el-button>
     </div>
   </div>
 </template>
@@ -18,8 +18,6 @@
     padding: 0 16px;
     display: flex;
     justify-content: space-between;
-    // align-self: center;
-    // text-align: center;
     .title {
       padding: 22px 0;
       span {
@@ -29,6 +27,12 @@
     .action {
       display: flex;
       align-self: center;
+      #MyDialogMode {
+        display: none;
+        &.signIn,&.logIn{
+          display: block;
+        }
+      }
     }
   }
 </style>
@@ -50,8 +54,18 @@ import MyDialogMode from './MyDialogMode'
         console.log(this.enterTo)
       },
       showLogIn(){
-        this.enterTo = 'LogIn'
+        this.enterTo = 'logIn'
         console.log(this.enterTo)
+      },
+      isDialog(){
+        if(this.enterTo === 'signIn'||'logIn'){
+          return true;
+        }else {
+          return false;
+        }
+      },
+      ExitDialog(){
+        this.enterTo = '';
       }
     },
     components:{
