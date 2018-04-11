@@ -27,7 +27,7 @@
     position: fixed;
     width: 480px;
     height: 500px;
-    background-color: #E75552;
+    background-color: #ffffff;
     position: relative;
     .header {
       #CloseButton {
