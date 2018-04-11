@@ -15,6 +15,7 @@
       </el-form-item>
     </el-form>
     <span @click="SwitchDialog()">已经有账号？马上登录</span>
+    <span class="errorMessage">{{errorMessage}}</span>
   </div>
 </template>
 
@@ -24,6 +25,7 @@
 
 <script>
 import AV from "../lib/leancloud.js";
+import getErrorMessage from '../lib/getErrorMessage';
 export default {
   data() {
     var validateUser = (rule, value, cb) => {
@@ -68,7 +70,8 @@ export default {
         userName: [{ validator: validateUser, trigger: "blur" }],
         pwd: [{ validator: validatePwd, trigger: "blur" }],
         checkPwd: [{ validator: validateCheckPwd, trigger: "blur" }]
-      }
+      },
+      errorMessage: ''
     };
   },
 
@@ -76,7 +79,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          
+          console.log(this.$refs.registerForm)
           //以下便是提交信息注册到leancloud的过程
           var user = new AV.User();
           let username = this.registerForm.userName;
@@ -95,7 +98,10 @@ export default {
               });
             },
             error => {
-              window.alert(error);
+              this.$message.error(getErrorMessage(error))
+              setTimeout(()=>{
+                this.$refs.registerForm.resetFields()
+              },2000)
             }
           );
         } else {
