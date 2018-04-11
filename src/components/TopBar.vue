@@ -4,13 +4,18 @@
       <span>Resume Editor</span>
     </div>
     <div class="action">
-      <MyDialogMode :class="enterTo" @ExitDialog="ExitDialog()">
-        <SignInForm v-if="enterTo === 'signIn'" @SwitchDialog="SwitchDialog()" @success="setUser($event)"/>
-        <LogInForm v-else @SwitchDialog="SwitchDialog()"/>
-      </MyDialogMode>
-      {{user.username}}
-      <el-button type="success" @click="showSignIn()">注册</el-button>
-      <el-button @click="showLogIn()">登录</el-button>
+      <div v-if="logined" class="userActions">
+        <span>你好，{{user.username}}</span>
+        <el-button type="danger" @click="removeUser()">退出</el-button>
+      </div>
+      <div v-else class="userActions">
+        <MyDialogMode :class="enterTo" @ExitDialog="ExitDialog()">
+          <SignInForm v-if="enterTo === 'signIn'" @SwitchDialog="SwitchDialog()" @success="setUser($event)"/>
+          <LogInForm v-else @SwitchDialog="SwitchDialog()"/>
+        </MyDialogMode>
+        <el-button type="success" @click="showSignIn()">注册</el-button>
+        <el-button type="primary" @click="showLogIn()">登录</el-button>
+      </div>
       <el-button @click="EnterPreview()">预览</el-button>
     </div>
   </div>
@@ -31,10 +36,13 @@
     .action {
       display: flex;
       align-self: center;
-      #MyDialogMode {
-        display: none;
-        &.signIn,&.logIn{
-          display: block;
+      .userActions {
+        margin-right: 2em;
+        #MyDialogMode {
+          display: none;
+          &.signIn,&.logIn{
+            display: block;
+          }
         }
       }
     }
@@ -82,6 +90,15 @@ import LogInForm from './LogInForm';
         this.$store.commit('setUser',payload)
         this.enterTo = '';
       },
+      removeUser(){
+        this.$store.commit('removeUser');
+        this.$notify({
+          title: '退出成功',
+          message: '你已经退出本应用',
+          type: 'success',
+          duration: 2500
+        })
+      }
     },
     components: {
       MyDialogMode,SignInForm,LogInForm
@@ -89,6 +106,9 @@ import LogInForm from './LogInForm';
     computed: {
       user(){
         return this.$store.state.user;
+      },
+      logined(){
+        return this.user.id;
       }
     }
   };

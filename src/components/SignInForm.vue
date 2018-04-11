@@ -11,7 +11,7 @@
         <el-input type="password" placeholder="请确认密码" v-model="registerForm.checkPwd" required></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('registerForm')">注册</el-button>
+        <el-button type="success" @click="submitForm('registerForm')">注册</el-button>
       </el-form-item>
     </el-form>
     <span @click="SwitchDialog()">已经有账号？马上登录</span>
@@ -96,6 +96,12 @@ export default {
                 username: loginedUser.attributes.username,
                 id: loginedUser.id
               });
+              this.$notify({
+                title: '注册成功',
+                message: '欢迎使用本应用',
+                type: 'success',
+                duration: 2500
+              })
             },
             error => {
               this.$message.error(getErrorMessage(error))

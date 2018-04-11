@@ -226,6 +226,12 @@ const mutations = {
     this.commit('setState', state)
     console.log(state.user)
   },
+  removeUser(state){
+    for(let key in state.user){
+      state.user[key] = ''
+    }
+    this.commit('setState', state)
+  },
 
   //读取localStorage里面的state覆盖Vuex的store.state
   initState(state, payload) {
