@@ -13,6 +13,8 @@
   import TopBar from "./components/TopBar";
   import Editor from "./components/Editor";
   import Preview from "./components/Preview";
+  import AV from './lib/leancloud'
+  import getAVUser from './lib/getAVUser'
   import "normalize.css";
   
   export default {
@@ -45,6 +47,7 @@
       }
       //如果有就json处理以后，commit给store
       this.$store.commit('initState', state)
+      this.$store.commit('setUser', getAVUser())
     }
   };
 </script>

@@ -25,6 +25,7 @@
 
 <script>
 import AV from "../lib/leancloud.js";
+import getAVUser from '../lib/getAVUser';
 import getErrorMessage from '../lib/getErrorMessage';
 export default {
   data() {
@@ -89,13 +90,15 @@ export default {
           //user.signUP之后会在leancloud根据用户名和密码在数据库添加用户，并返回一个对象或error
           //本地就可以根据这个loginedUser来获取用户id和用户名，好给数据打标签。
           user.signUp().then(
-            loginedUser => {
+            (loginedUser) => {
               //给父组件触发一个success事件，带上返回得到的username和id。
               //这里的前提是在父组件引入了vuex
-              this.$emit("success", {
-                username: loginedUser.attributes.username,
-                id: loginedUser.id
-              });
+              // this.$emit("success", {
+              //   username: loginedUser.attributes.username,
+              //   id: loginedUser.id
+              // });
+              // 下面的getAVUser其实就是完成上面的操作。
+              this.$emit('success', getAVUser())
               this.$notify({
                 title: '注册成功',
                 message: '欢迎使用本应用',
