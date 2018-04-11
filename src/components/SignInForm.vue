@@ -1,11 +1,14 @@
 <template>
   <div id="SignInForm" @submit.prevent="signUp()">
     <el-form :model="formData" ref="signForm">
-      <el-form-item label="设置用户名" prop="username">
-        <el-input type="text" placeholder="请设置用户名" v-model="formData.username"></el-input>
+      <el-form-item label="设置用户名">
+        <el-input type="text" placeholder="请设置用户名" v-model="formData.username" required></el-input>
       </el-form-item>
-      <el-form-item label="设置密码" prop="password">
-        <el-input type="password" placeholder="请设置密码" v-model="formData.password"></el-input>
+      <el-form-item label="设置密码">
+        <el-input type="password" placeholder="请设置密码" v-model="formData.password" required></el-input>
+      </el-form-item>
+      <el-form-item label="确认密码">
+        <el-input type="password" placeholder="请确认密码" v-model="formData.checkPass" required></el-input>
       </el-form-item>
       <el-form-item>
         <el-input type="submit" value="注册"></el-input>
@@ -26,7 +29,8 @@ export default {
     return {
       formData: {
         username: "",
-        password: ""
+        password: "",
+        checkPass: ""
       }
     };
   },
