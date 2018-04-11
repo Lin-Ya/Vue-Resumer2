@@ -11,7 +11,7 @@
       <div v-else class="userActions">
         <MyDialogMode :class="enterTo" @ExitDialog="ExitDialog()">
           <SignInForm v-if="enterTo === 'signIn'" @SwitchDialog="SwitchDialog()" @success="setUser($event)"/>
-          <LogInForm v-else @SwitchDialog="SwitchDialog()"/>
+          <LogInForm v-else @SwitchDialog="SwitchDialog()" @success="setUser($event)"/>
         </MyDialogMode>
         <el-button type="success" @click="showSignIn()">注册</el-button>
         <el-button type="primary" @click="showLogIn()">登录</el-button>

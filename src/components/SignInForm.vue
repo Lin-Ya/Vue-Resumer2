@@ -106,7 +106,7 @@ export default {
                 duration: 2500
               })
             },
-            error => {
+            (error) => {
               this.$message.error(getErrorMessage(error))
               setTimeout(()=>{
                 this.$refs.registerForm.resetFields()

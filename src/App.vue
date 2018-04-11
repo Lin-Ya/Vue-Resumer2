@@ -47,7 +47,7 @@
       }
       //如果有就json处理以后，commit给store
       this.$store.commit('initState', state)
-      this.$store.commit('setUser', getAVUser())
+      // this.$store.commit('setUser', getAVUser())
     }
   };
 </script>
