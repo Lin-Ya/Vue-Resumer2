@@ -148,7 +148,7 @@
   }
   .page {
     flex: 1;
-    padding: 0 16px;
+    padding: 0 32px 0 16px;
     overflow: auto;
     margin-right: -18px;
     @import "../style/theme/default";
