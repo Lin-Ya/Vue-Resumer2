@@ -12,7 +12,7 @@
         <span class="selatedTab" v-bind:class="{active: theTheame === 'brisk'}" v-on:click="switchTheame($event)" v-bind:theame="'brisk'">清新</span>
       </div>
     </div>
-    <div class="page" v-bind:class="this.theTheame">
+    <div class="page" id="page" v-bind:class="this.theTheame">
       <section class="profile">
         <ul v-for="item in filterArray(resume.profile.data)" v-bind:key="item.name">
           <li class="profile_name">
@@ -77,6 +77,7 @@
     <el-tooltip class="item" effect="dark" content="点击退出预览" placement="right">
       <el-button class="exitButton" type="info" icon="el-icon-close" circle v-on:click="ExitPreview()"></el-button>
     </el-tooltip>
+    <el-button class="printButton" @click="makepdf()">保存为pdf</el-button>
   </div>
 </template>
 
@@ -123,7 +124,7 @@
           transform: rotate(-45deg);
         }
       }
-    } 
+    }
     .tab {
       margin-left: 16px;
       width: 280px;
@@ -143,7 +144,7 @@
       }
     }
   }
-  .exitButton {
+  .exitButton,.printButton {
     display: none;
   }
   .page {
@@ -160,6 +161,7 @@
 
 <script>
 import store from "../Vuex/store.js";
+import jsPDF from "jspdf";
 export default {
   store,
   data() {
@@ -195,7 +197,26 @@ export default {
       this.$emit("ExitPreview");
     },
     switchTheame(e) {
-      this.theTheame = e.target.getAttribute('theame')
+      this.theTheame = e.target.getAttribute("theame");
+    },
+    makepdf() {
+      html2canvas(document.getElementById("page"), {
+        dpi: 600000,
+        onrendered: function(canvas) {
+          //通过html2canvas将html渲染成canvas，然后获取图片数据
+          var imgData = canvas.toDataURL("image/jpeg");
+
+          //初始化pdf，设置相应格式
+          var doc = new jsPDF("p", "mm", "a4");
+
+          //这里设置的是a4纸张尺寸
+          doc.addImage(imgData, "JPEG", 0, 0, 210, 297);
+
+          //输出保存命名为content的pdf
+          doc.save("resume.pdf");
+        },
+        background: '#FFF'
+      });
     }
   }
 };

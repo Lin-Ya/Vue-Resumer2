@@ -121,11 +121,16 @@
         .actions {
           display: none;
         }
-        .exitButton {
+        .exitButton,.printButton{
           display: block;
           position: fixed;
           top: 19px;
           right: calc( 50% - 452px);
+        }
+        .printButton {
+          top: unset;
+          bottom: 48px;
+          right: calc( 50% - 500px);
         }
       }
     }
