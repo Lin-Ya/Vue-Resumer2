@@ -190,6 +190,8 @@ const state = {
 const mutations = {
   switchTab(state, target) {
     this.state.navselected = target;
+    //保存state到localStorage。
+    this.commit('setState', state)
   },
   updateForm(state, {
     field,
@@ -197,11 +199,13 @@ const mutations = {
     key,
     value
   }) {
-    this.state.resume[field].data[dataindex][key] = value
+    this.state.resume[field].data[dataindex][key] = value;
+    this.commit('setState', state)
   },
   addFieldData(state, object) {
     let field = object.field;
-    this.state.resume[field].data.push(object.data)
+    this.state.resume[field].data.push(object.data);
+    this.commit('setState', state)
   },
   removeFieldData(state, object) {
     let data = this.state.resume[object.field].data
@@ -214,11 +218,22 @@ const mutations = {
         data[0][key] = "";
       }
     }
+    this.commit('setState', state)
   },
   setUser(state, payload) {
     //payload(id,username) =覆盖=> state.user
     Object.assign(state.user, payload)
+    this.commit('setState', state)
     console.log(state.user)
+  },
+
+  //读取localStorage里面的state覆盖Vuex的store.state
+  initState(state, payload) {
+    Object.assign(state, payload)
+  },
+  //保存state到localStorage。
+  setState(state) {
+    localStorage.setItem('state', JSON.stringify(state))
   }
 }
 
@@ -226,3 +241,4 @@ export default new Vuex.Store({
   state,
   mutations
 })
+

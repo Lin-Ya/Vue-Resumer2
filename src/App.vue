@@ -9,12 +9,14 @@
 </template>
 
 <script>
+  import store from "./Vuex/store"
   import TopBar from "./components/TopBar";
   import Editor from "./components/Editor";
   import Preview from "./components/Preview";
   import "normalize.css";
   
   export default {
+    store,
     name: "App",
     components: {
       TopBar,
@@ -34,6 +36,15 @@
       ExitPreview() {
         this.PreviewMode = false;
       }
+    },
+    created() {
+      //页面创建时，查看本地localStorage有没有名为state的，
+      let state = localStorage.getItem('state');
+      if(state){
+        state = JSON.parse(state)
+      }
+      //如果有就json处理以后，commit给store
+      this.$store.commit('initState', state)
     }
   };
 </script>
