@@ -116,7 +116,7 @@
       }
       .preview {
         margin: 40px auto;
-        width: 800px;
+        width: 720px;
         flex: none;
         .actions {
           display: none;
