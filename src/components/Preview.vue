@@ -9,7 +9,7 @@
       <div class="tab">
         <span class="selatedTab" v-bind:class="{active: theTheame === 'default'}" v-on:click="switchTheame($event)" v-bind:theame="'default'">默认</span>
         <span class="selatedTab" v-bind:class="{active: theTheame === 'simple'}" v-on:click="switchTheame($event)" v-bind:theame="'simple'">简约</span>
-        <span class="selatedTab" v-bind:class="{active: theTheame === 'flash'}" v-on:click="switchTheame($event)" v-bind:theame="'flash'">清新</span>
+        <span class="selatedTab" v-bind:class="{active: theTheame === 'brisk'}" v-on:click="switchTheame($event)" v-bind:theame="'brisk'">清新</span>
       </div>
     </div>
     <div class="page" v-bind:class="this.theTheame">
@@ -151,7 +151,10 @@
     flex: 1;
     padding: 0 16px;
     overflow: auto;
-    margin-right: -16px;
+    margin-right: -18px;
+    @import "../style/theme/default";
+    @import "../style/theme/simple";
+    @import "../style/theme/brisk";
   }
 }
 </style>
