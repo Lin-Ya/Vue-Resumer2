@@ -13,66 +13,70 @@
       </div>
     </div>
     <div class="page" id="page" v-bind:class="this.theTheame">
-      <section class="profile">
-        <ul v-for="item in filterArray(resume.profile.data)" v-bind:key="item.name">
-          <li class="profile_name">
-            <h1>{{item.name}}</h1>
-          </li>
-          <li>
-            <span>{{item.genter}}</span>
-            <span>{{item.birth}}</span>
-            <span>{{item.status}}</span>
-          </li>
-          <li>
-            <span>目前在{{item.city||"【请填写所在城市"}}，期望在{{item.wishCity||"【请填写所在城市】"}}找到一份{{item.wishPosition||"【请填写期望职位】"}}的工作</span>
-          </li>
-        </ul>
-      </section>
-      <section class="project" v-if="filterArray(resume.projects.data).length > 0">
-        <h2>项目经验</h2>
-        <ul v-for="item in filterArray(resume.projects.data)" :key="item.name">
-          <li class="item_name">{{item.name}}</li>
-          <li>{{item.skill}}</li>
-          <li>{{item.content}}</li>
-        </ul>
-      </section>
-      <section class="workHistory" v-if="filterArray(resume.workHistory.data).length > 0">
-        <h2>工作经历</h2>
-        <ul v-for="item in filterArray(resume.workHistory.data)" :key="item.name">
-          <li class="item_name">{{item.company}}</li>
-          <li>{{item.time}} | {{item.position}}</li>
-          <li>{{item.content}}</li>
-        </ul>
-      </section>
-      <section class="education" v-if="filterArray(resume.education.data).length > 0">
-        <h2>学习经历</h2>
-        <ul v-for="item in filterArray(resume.education.data)" v-bind:key="item.name">
-          <li class="item_name">{{item.school}}</li>
-          <li>{{item.time}} | {{item.major}}</li>
-          <li></li>
-        </ul>
-      </section>
-      <section class="awards" v-if="filterArray(resume.awards.data).length > 0">
-        <h2>获奖经历</h2>
-        <ul v-for="item in filterArray(resume.awards.data)" v-bind:key="item.name">
-          <li class="item_name">{{item.name}}</li>
-          <li>{{item.content}}</li>
-        </ul>
-      </section>
-      <section class="contacts" v-if="filterArray(resume.contacts.data).length > 0">
-        <h2>联系方式</h2>
-        <ul v-for="item in filterArray(resume.contacts.data)" v-bind:key="item.name">
-          <li class="item_name">{{item.type}}</li>
-          <span>{{item.address}}</span>
-        </ul>
-      </section>
-      <section class="others" v-if="filterArray(resume.others.data).length > 0">
-        <h2>其他</h2>
-        <ul v-for="item in filterArray(resume.others.data)" v-bind:key="item.name">
-          <li class="item_name">{{item.name}}</li>
-          <li>{{item.content}}</li>
-        </ul>
-      </section>
+      <div class="aside">
+        <section class="profile">
+          <ul v-for="item in filterArray(resume.profile.data)" v-bind:key="item.name">
+            <li class="profile_name">
+              <h1>{{item.name}}</h1>
+            </li>
+            <li>
+              <span>{{item.genter}}</span>
+              <span>{{item.birth}}</span>
+              <span>{{item.status}}</span>
+            </li>
+            <li>
+              <span>目前在{{item.city||"【请填写所在城市"}}，期望在{{item.wishCity||"【请填写所在城市】"}}找到一份{{item.wishPosition||"【请填写期望职位】"}}的工作</span>
+            </li>
+          </ul>
+        </section>
+        <section class="contacts" v-if="filterArray(resume.contacts.data).length > 0">
+          <h2>联系方式</h2>
+          <ul v-for="item in filterArray(resume.contacts.data)" v-bind:key="item.name">
+            <li class="item_name">{{item.type}}</li>
+            <span>{{item.address}}</span>
+          </ul>
+        </section>
+      </div>
+      <div class="detail">
+        <section class="project" v-if="filterArray(resume.projects.data).length > 0">
+          <h2>项目经验</h2>
+          <ul v-for="item in filterArray(resume.projects.data)" :key="item.name">
+            <li class="item_name">{{item.name}}</li>
+            <li>{{item.skill}}</li>
+            <li>{{item.content}}</li>
+          </ul>
+        </section>
+        <section class="workHistory" v-if="filterArray(resume.workHistory.data).length > 0">
+          <h2>工作经历</h2>
+          <ul v-for="item in filterArray(resume.workHistory.data)" :key="item.name">
+            <li class="item_name">{{item.company}}</li>
+            <li>{{item.time}} | {{item.position}}</li>
+            <li>{{item.content}}</li>
+          </ul>
+        </section>
+        <section class="education" v-if="filterArray(resume.education.data).length > 0">
+          <h2>学习经历</h2>
+          <ul v-for="item in filterArray(resume.education.data)" v-bind:key="item.name">
+            <li class="item_name">{{item.school}}</li>
+            <li>{{item.time}} | {{item.major}}</li>
+            <li></li>
+          </ul>
+        </section>
+        <section class="awards" v-if="filterArray(resume.awards.data).length > 0">
+          <h2>获奖经历</h2>
+          <ul v-for="item in filterArray(resume.awards.data)" v-bind:key="item.name">
+            <li class="item_name">{{item.name}}</li>
+            <li>{{item.content}}</li>
+          </ul>
+        </section>
+        <section class="others" v-if="filterArray(resume.others.data).length > 0">
+          <h2>其他</h2>
+          <ul v-for="item in filterArray(resume.others.data)" v-bind:key="item.name">
+            <li class="item_name">{{item.name}}</li>
+            <li>{{item.content}}</li>
+          </ul>
+        </section>
+      </div>
     </div>
     <el-tooltip class="item" effect="dark" content="点击退出预览" placement="right">
       <el-button class="exitButton" type="info" icon="el-icon-close" circle v-on:click="ExitPreview()"></el-button>
