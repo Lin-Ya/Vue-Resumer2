@@ -7,6 +7,7 @@
       <div v-if="logined" class="userActions">
         <span class="welcome">你好，{{user.username}}</span>
         <el-button type="danger" @click="removeUser()">退出</el-button>
+        <el-button @click="EnterPreview()">预览</el-button>
       </div>
       <div v-else class="userActions">
         <MyDialogMode :class="enterTo" @ExitDialog="ExitDialog()">
@@ -16,7 +17,6 @@
         <el-button type="success" @click="showSignIn()">注册</el-button>
         <el-button type="primary" @click="showLogIn()">登录</el-button>
       </div>
-      <el-button @click="EnterPreview()">预览</el-button>
     </div>
   </div>
 </template>
