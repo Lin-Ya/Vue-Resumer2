@@ -5,7 +5,7 @@
     </div>
     <div class="action">
       <div v-if="logined" class="userActions">
-        <span>你好，{{user.username}}</span>
+        <span class="welcome">你好，{{user.username}}</span>
         <el-button type="danger" @click="removeUser()">退出</el-button>
       </div>
       <div v-else class="userActions">
@@ -38,6 +38,10 @@
       align-self: center;
       .userActions {
         margin-right: 2em;
+        .welcome {
+          margin-right: 10px;
+          font-size: 20px;
+        }
         #MyDialogMode {
           display: none;
           &.signIn,&.logIn{

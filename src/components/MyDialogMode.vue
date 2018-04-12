@@ -23,13 +23,15 @@
   .container {
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     position: fixed;
     width: 480px;
-    height: 500px;
+    height: 450px;
     background-color: #ffffff;
+    border-radius: 5px;
     position: relative;
     .header {
+      text-align: center;
       #CloseButton {
         font-size: 24px;
         cursor: pointer;
@@ -38,17 +40,19 @@
         right: 8px;
       }
     }
+    span {
+      cursor: pointer;
+    }
   }
 }
 </style>
 
 <script>
-
 export default {
   methods: {
-    Exit(){
-      this.$emit('ExitDialog')
+    Exit() {
+      this.$emit("ExitDialog");
     }
   }
-}
+};
 </script>
