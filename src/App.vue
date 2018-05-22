@@ -6,7 +6,7 @@
 
 <script>
 import "normalize.css";
-import Page from "components/page.vue";
+import Page from "./components/page.vue";
 
 export default {
   name: "App",

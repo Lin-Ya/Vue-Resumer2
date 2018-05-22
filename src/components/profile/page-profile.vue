@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import ItemInfo from './item-info.vue'
+import ItemInfo from '@/base/item-info.vue'
 export default {
   name: 'Profile',
   components: {

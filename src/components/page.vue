@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import PageProfile from "./page-profile.vue";
-import PageSide from "./page-side.vue";
-import PageFooter from "./page-footer.vue";
+import PageProfile from "./profile/page-profile.vue";
+import PageSide from "./side/page-side.vue";
+import PageFooter from "./footer/page-footer.vue";
 export default {
   name: "page",
   components: {
