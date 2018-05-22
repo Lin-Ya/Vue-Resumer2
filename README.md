@@ -1,6 +1,6 @@
-# vueresumer2
+# vue-resumer
 
-> A Vue.js project
+> A resumer-editor project of Vue.js
 
 ## Build Setup
 
