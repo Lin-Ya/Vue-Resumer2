@@ -2,7 +2,7 @@
   <div class="section">
     <div class="warper">
       <div class="section-title">
-        <ItemInfo>{{section.title}}</ItemInfo>
+        <ItemInfo :msg="section.title"></ItemInfo>
       </div>
       <ul class="section-body">
         <li v-for="(list,index) in section.list" :key="index">
@@ -29,4 +29,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.warper {
+  margin: 24px 0;
+  padding: 4px;
+  ul {
+    border-left: 1px solid #bababa;
+    li {
+      padding-left: 32px;
+    }
+  }
+}
 </style>

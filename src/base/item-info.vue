@@ -34,9 +34,12 @@ export default {
     &.title {
       color: red;
       font-weight: bolder;
+      line-height: 32px;
+      font-size: 24px;
     }
     &.brief {
       font-weight: lighter;
+      line-height: 24px;
     }
   }
 }

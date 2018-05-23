@@ -29,6 +29,9 @@ export default {
     box-sizing: border-box;
   }
 }
+ul,ol {
+  list-style: none;
+}
 html,body {
   width: 100%;
 }
