@@ -9,7 +9,7 @@ export default {
   name: "item-info",
   props: {
     msg: {
-      type: Object
+      type: Object,
     }
   }
 };

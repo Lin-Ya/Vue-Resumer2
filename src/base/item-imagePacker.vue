@@ -1,7 +1,7 @@
 <template>
   <div class="imageGroup">
-    <input type="file" v-on:change="uploadImg($event)">
-    <img src="">
+    <input type="file" v-on:change="uploadImg($event)" >
+    <img src="" >
   </div>
 </template>
 
@@ -43,6 +43,7 @@ export default {
   },
   methods: {
     uploadImg(e){
+      let img = e.target.nextElementSibling
       let reader = new FileReader()
       let file = e.target.files[0];
       if(!file.type.match('image/*')){
@@ -53,8 +54,7 @@ export default {
       reader.readAsDataURL(file)
         console.log(reader)
       reader.onload = function (ev) {
-        let img = document.getElementsByTagName('img')
-        img[0].src = ev.target.result;
+        img.src = ev.target.result;
       }
     }
   }

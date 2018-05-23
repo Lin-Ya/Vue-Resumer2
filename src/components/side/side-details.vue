@@ -1,48 +1,39 @@
 <template>
   <div id="details">
     <div class="warper">
-      <ItemSection :section="section"></ItemSection>
+      <ItemInfo :msg="title"></ItemInfo>
+      <ItemListInfo class="listItem" :lists="contact"></ItemListInfo>
     </div>
   </div>
 </template>
 
 <script>
 import ItemInfo from "base/item-info.vue";
-import ItemSection from "base/item-section";
-import ItemImagePacker from "base/item-imagePacker.vue";
+import ItemListInfo from "base/item-listInfo.vue";
 export default {
   name: "",
   data() {
     return {
-      section: {
-        title: {
-          style: "lightTitle",
-          content: "Details"
-        },
-        list: [
-          {
-            date: {
-              content: '08 1994'
-            },
-            email: {
-              style: 'light',
-              content: 'fenghuiwing@outlook.com'
-            },
-            tel: {
-              content: '132 0261 7737'
-            }
-          }
-        ]
+      title: {
+        style: "lightTitle",
+        content: "Contact"
+      },
+      contact:{
+        tel: {
+          content: '13123456789'
+        }
       }
     };
   },
   components: {
     ItemInfo,
-    ItemSection,
-    ItemImagePacker
+    ItemListInfo
   }
 };
 </script>
 
 <style lang="less" scoped>
+.listItem {
+  margin-top: 24px;
+}
 </style>
