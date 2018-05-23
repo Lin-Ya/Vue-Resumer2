@@ -1,22 +1,24 @@
 <template>
 	<div id="profile">
-    <div class="profile-hero">
-      <div class="header"></div>
-      <div class="content"></div>
-    </div>
-    <div class="profile-projects">
-    </div>
-    <div class="profile-education">
-    </div>
+    <ProfileHero></ProfileHero>
+    <ProfileProjects></ProfileProjects>
+    <ProfileEducation></ProfileEducation>
 	</div>
 </template>
 
 <script>
-import ItemInfo from '@/base/item-info.vue'
+import ItemInfo from 'base/item-info.vue';
+import ProfileHero from './profile-hero'
+import ProfileEducation from './profile-education'
+import ProfileProjects from './profile-projects'
+
 export default {
   name: 'Profile',
   components: {
-    ItemInfo
+    ItemInfo,
+    ProfileHero,
+    ProfileEducation,
+    ProfileProjects
   }
 };
 </script>

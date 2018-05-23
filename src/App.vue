@@ -6,7 +6,7 @@
 
 <script>
 import "normalize.css";
-import Page from "./components/page.vue";
+import Page from "components/page.vue";
 
 export default {
   name: "App",
@@ -29,10 +29,10 @@ export default {
     box-sizing: border-box;
   }
 }
+html,body {
+  width: 100%;
+}
 #app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
   width: 100%;
   padding: 32px 0;
