@@ -4,12 +4,14 @@
       <ItemInfo :msg="title"></ItemInfo>
       <ItemListInfo class="listItem" :lists="contact"></ItemListInfo>
     </div>
+    <ItemDatabar></ItemDatabar>
   </div>
 </template>
 
 <script>
 import ItemInfo from "base/item-info.vue";
 import ItemListInfo from "base/item-listInfo.vue";
+import ItemDatabar from 'base/item-databar.vue'
 export default {
   name: "",
   data() {
@@ -27,7 +29,8 @@ export default {
   },
   components: {
     ItemInfo,
-    ItemListInfo
+    ItemListInfo,
+    ItemDatabar
   }
 };
 </script>
