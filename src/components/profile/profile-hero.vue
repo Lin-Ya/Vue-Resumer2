@@ -31,7 +31,7 @@ export default {
     return {
       info: {
         name: {
-          style: "bingTitle",
+          style: "bgTitle",
           content: "Feng HuiWing"
         },
         job: {
@@ -45,7 +45,7 @@ export default {
       },
       section: {
         title: {
-          style: 'title',
+          style: 'lightTitle',
           content: 'Profile'
         },
         list: [
@@ -65,7 +65,6 @@ export default {
 
 <style lang="less" scoped>
 #hero {
-  border: 1px solid red;
   .hero-info {
     display: flex;
     align-items: center;
@@ -74,6 +73,7 @@ export default {
       width: 120px;
       margin: 0 8px;
       overflow: hidden;
+      border-radius: 50%;
     }
     .person {
       flex: 1;

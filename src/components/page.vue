@@ -36,11 +36,12 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    height: 88%;
+    height: 95%;
     width: 100%;
+    overflow: hidden;
   }
   .footer {
-    height: 12%;
+    height: 5%;
   }
 }
 </style>

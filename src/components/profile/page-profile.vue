@@ -1,6 +1,7 @@
 <template>
 	<div id="profile">
     <ProfileHero></ProfileHero>
+    <ProfileExperience></ProfileExperience>
     <ProfileProjects></ProfileProjects>
     <ProfileEducation></ProfileEducation>
 	</div>
@@ -11,6 +12,7 @@ import ItemInfo from 'base/item-info.vue';
 import ProfileHero from './profile-hero'
 import ProfileEducation from './profile-education'
 import ProfileProjects from './profile-projects'
+import ProfileExperience from './profile-experience.vue'
 
 export default {
   name: 'Profile',
@@ -18,14 +20,14 @@ export default {
     ItemInfo,
     ProfileHero,
     ProfileEducation,
-    ProfileProjects
+    ProfileProjects,
+    ProfileExperience
   }
 };
 </script>
 
 <style lang="less" scoped>
 #profile {
-	border: 1px solid red;
   width: 64%;
   padding: 40px 48px;
 }

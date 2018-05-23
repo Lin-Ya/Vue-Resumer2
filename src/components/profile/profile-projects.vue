@@ -1,18 +1,75 @@
 <template>
   <div id="projects">
-
+    <ItemSection :section="section"></ItemSection>
   </div>
 </template>
 
 <script>
+import ItemSection from "base/item-section.vue";
 export default {
-  
-}
+  name: "projects",
+  components: {
+    ItemSection
+  },
+  data() {
+    return {
+      section: {
+        title: {
+          style: "lightTitle",
+          content: "Projects"
+        },
+        list: [
+          {
+            projectName: {
+              style: 'title',
+              content: 'Vue-ResumeEditor '
+            },
+            time: {
+              style: 'light',
+              content: '02/2018-Present'
+            },
+            content: {
+              style: 'brief',
+              content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit metus in libero rutrum congue aliquam eu libero. Donec tristique est pharetra fringilla sollicitudin. Etiam eu ipsum vitae nulla tincidunt scelerisque semper id arcu.'
+            }
+          },
+          {
+            projectName: {
+              style: 'title',
+              content: 'Vue-ResumeEditor '
+            },
+            time: {
+              style: 'light',
+              content: '02/2018-Present'
+            },
+            content: {
+              style: 'brief',
+              content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit metus in libero rutrum congue aliquam eu libero. Donec tristique est pharetra fringilla sollicitudin. Etiam eu ipsum vitae nulla tincidunt scelerisque semper id arcu.'
+            }
+          },
+          {
+            projectName: {
+              style: 'title',
+              content: 'Vue-ResumeEditor '
+            },
+            time: {
+              style: 'light',
+              content: '02/2018-Present'
+            },
+            content: {
+              style: 'brief',
+              content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit metus in libero rutrum congue aliquam eu libero. Donec tristique est pharetra fringilla sollicitudin. Etiam eu ipsum vitae nulla tincidunt scelerisque semper id arcu.'
+            }
+          }
+        ]
+      }
+    };
+  }
+};
 </script>
 
 <style lang="less" scoped>
-#projects{
+#projects {
   max-height: 56%;
-  border: 1px solid red;
 }
 </style>

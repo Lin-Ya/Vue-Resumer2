@@ -18,11 +18,11 @@ export default {
 <style lang="less" scoped>
 .info {
   width: 100%;
-  margin: 2px 0;
+  margin: 4px 0;
   span {
-    padding: 4px;
+    padding: 4px 0;
     display: block;
-    &.bingTitle {
+    &.bgTitle {
       font-weight: bolder;
       font-size: 32px;
       line-height: 40px;
@@ -31,7 +31,15 @@ export default {
       color: red;
       font-weight: bolder;
     }
+    &.smTitle {
+      font-weight: bolder;
+    }
     &.title {
+      font-weight: bolder;
+      line-height: 32px;
+      font-size: 24px;
+    }
+    &.lightTitle {
       color: red;
       font-weight: bolder;
       line-height: 32px;

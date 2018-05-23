@@ -30,12 +30,18 @@ export default {
 
 <style lang="less" scoped>
 .warper {
-  margin: 24px 0;
-  padding: 4px;
-  ul {
+  margin-top: 24px;
+  .section-title {
+    width: 240px;
+  }
+  .section-body {
+    margin-top: 24px;
     border-left: 1px solid #bababa;
     li {
-      padding-left: 32px;
+      padding: 0 32px 8px 32px; 
+      &:last-child {
+        padding-bottom: 0;
+      }
     }
   }
 }
