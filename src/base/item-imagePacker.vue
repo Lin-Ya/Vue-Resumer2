@@ -1,7 +1,7 @@
 <template>
   <div class="imageGroup">
-    <input type="file" v-on:change="uploadImg($event)" >
-    <img src="" >
+    <input type="file" v-on:change="uploadImg($event)">
+    <img :src="src">
   </div>
 </template>
 
@@ -35,27 +35,39 @@
 </style>]
 
 <script>
+import defaultImg from "img/default.png";
 export default {
   data() {
     return {
-      src: ""
+      src: defaultImg
     };
   },
+  props: {
+    custom: {
+      type: String,
+      required: false
+    }
+  },
   methods: {
-    uploadImg(e){
-      let img = e.target.nextElementSibling
-      let reader = new FileReader()
+    uploadImg(e) {
+      let img = e.target.nextElementSibling;
+      let reader = new FileReader();
       let file = e.target.files[0];
-      if(!file.type.match('image/*')){
-        alert('上传的图片必须是png、gif、jpg格式哟！')
-        e.target.value = '';
-        return
+      if (!file.type.match("image/*")) {
+        alert("上传的图片必须是png、gif、jpg格式哟！");
+        e.target.value = "";
+        return;
       }
-      reader.readAsDataURL(file)
-        console.log(reader)
-      reader.onload = function (ev) {
+      reader.readAsDataURL(file);
+      console.log(reader);
+      reader.onload = function(ev) {
         img.src = ev.target.result;
-      }
+      };
+    }
+  },
+  created(){
+    if(this.custom){
+      this.src = this.custom
     }
   }
 };

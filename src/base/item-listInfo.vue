@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="listInfo" v-for="list in lists">
-      <ItemImagePacker class="imgPacker"></ItemImagePacker>
+      <ItemImagePacker class="imgPacker" :custom="list.logo"></ItemImagePacker>
       <ItemInfo class="content" :msg="list"></ItemInfo>
     </div>
   </div>
@@ -10,7 +10,6 @@
 
 <style lang="less" scoped>
 .listInfo {
-  border: 1px solid red;
   display: flex;
   height: 48px;
   align-items: center;

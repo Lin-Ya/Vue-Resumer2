@@ -1,15 +1,18 @@
 <template>
   <div id="side">
     <SideDetails></SideDetails>
+    <SideTools></SideTools>
   </div>
 </template>
 
 <script>
 import SideDetails from './side-details.vue'
+import SideTools from './side-tools.vue'
 export default {
   name: 'side',
   components: {
-    SideDetails
+    SideDetails,
+    SideTools
   }
 };
 </script>

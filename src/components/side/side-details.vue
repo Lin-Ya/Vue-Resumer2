@@ -4,14 +4,15 @@
       <ItemInfo :msg="title"></ItemInfo>
       <ItemListInfo class="listItem" :lists="contact"></ItemListInfo>
     </div>
-    <ItemDatabar></ItemDatabar>
   </div>
 </template>
 
 <script>
 import ItemInfo from "base/item-info.vue";
 import ItemListInfo from "base/item-listInfo.vue";
-import ItemDatabar from 'base/item-databar.vue'
+import ItemDatabar from 'base/item-databar.vue';
+import telImg from "img/phone.png";
+import emailImg from "img/mail.png";
 export default {
   name: "",
   data() {
@@ -22,7 +23,19 @@ export default {
       },
       contact:{
         tel: {
-          content: '13123456789'
+          content: '13123456789',
+          logo: telImg
+        },
+        email: {
+          content: 'fenghuiwing@outlook.com',
+          logo: emailImg  
+        }
+      },
+      dataGroup: {
+        number: '20',
+        name: {
+          style: 'brief',
+          content: 'hahaha'
         }
       }
     };

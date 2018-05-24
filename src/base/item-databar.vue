@@ -1,12 +1,12 @@
 <template>
   <div class="databar">
     <div class="content">
-      <ItemInfo :msg="java"></ItemInfo>
-      <div class="bar topbar" :style="{width:number+'%'}"></div>
+      <ItemInfo :msg="source.name"></ItemInfo>
+      <div class="bar topbar" :style="{width:source.number+'%'}"></div>
       <div class="bar bottombar"></div>
     </div>
     <div class="num">
-      <input contenteditable="true" @input="setBar($event)" v-model="number" maxlength="2">
+      <input contenteditable="true" v-model="source.number" maxlength="2">
       <span>%</span>
     </div>
   </div>
@@ -17,17 +17,30 @@ import ItemInfo from "base/item-info.vue";
 export default {
   data() {
     return {
-      number: "80",
-      java: {
-        style: "brief",
-        content: "java"
+      source: null,
+      default: {
+        number: "80",
+        name: {
+          style: "brief",
+          content: "java"
+        }
       }
     };
+  },
+  props: {
+    group: {
+      type: Object
+    }
   },
   components: {
     ItemInfo
   },
-  methods: {
+  created(){
+    if(this.group){
+      this.source = this.group;
+      return
+    }
+    this.source = this.default
   }
 };
 </script>
@@ -52,6 +65,7 @@ export default {
     .topbar {
       z-index: 2;
       background-color: red;
+      transition: all 0.3s;
     }
     .bottombar {
       width: 100%;
