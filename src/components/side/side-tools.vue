@@ -1,9 +1,9 @@
 <template>
-  <div id="tools">
+  <div id="tools"  class="side-cell">
     <div class="warper">
       <ItemInfo :msg="title"></ItemInfo>
     </div>
-    <ItemDatabar :group="item.dataGroup" v-for="(item,index) in tools" :key="index" ></ItemDatabar>
+    <ItemDatabar :group="item.dataGroup" v-for="(item,index) in items" :key="index" ></ItemDatabar>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
         style: 'lightTitle',
         content: 'Tools'
       },
-      tools: [
+      items: [
         {
           dataGroup: {
             number: '75',

@@ -1,5 +1,5 @@
 <template>
-  <div id="details">
+  <div id="details"  class="side-cell">
     <div class="warper">
       <ItemInfo :msg="title"></ItemInfo>
       <ItemListInfo class="listItem" :lists="contact"></ItemListInfo>
@@ -29,13 +29,6 @@ export default {
         email: {
           content: 'fenghuiwing@outlook.com',
           logo: emailImg  
-        }
-      },
-      dataGroup: {
-        number: '20',
-        name: {
-          style: 'brief',
-          content: 'hahaha'
         }
       }
     };
