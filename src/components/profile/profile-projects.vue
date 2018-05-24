@@ -15,7 +15,7 @@ export default {
     return {
       section: {
         title: {
-          style: "lightTitle",
+          style: "section-title",
           content: "Projects"
         },
         list: [
@@ -25,7 +25,7 @@ export default {
               content: 'Vue-ResumeEditor '
             },
             time: {
-              style: 'light',
+              style: 'light-title',
               content: '02/2018-Present'
             },
             content: {
@@ -39,7 +39,7 @@ export default {
               content: 'Vue-ResumeEditor '
             },
             time: {
-              style: 'light',
+              style: 'light-title',
               content: '02/2018-Present'
             },
             content: {
@@ -53,7 +53,7 @@ export default {
               content: 'Vue-ResumeEditor '
             },
             time: {
-              style: 'light',
+              style: 'light-title',
               content: '02/2018-Present'
             },
             content: {

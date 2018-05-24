@@ -16,7 +16,7 @@ export default {
     return {
       section: {
         title: {
-          style: 'lightTitle',
+          style: 'section-title',
           content: 'Education'
         },
         list: [
@@ -26,7 +26,7 @@ export default {
               content: 'BA,Communication'
             },
             time: {
-              style: 'light',
+              style: 'light-title',
               content: '2012-2016'
             },
             school: {

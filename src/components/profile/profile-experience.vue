@@ -15,7 +15,7 @@ export default {
     return {
       section: {
         title: {
-          style: "lightTitle",
+          style: "section-title",
           content: "Experience"
         },
         list: [
@@ -25,7 +25,7 @@ export default {
               content: "UI Desgner @ Google "
             },
             time: {
-              style: "light",
+              style: "light-title",
               content: "02/2018-Present"
             },
             content: {
@@ -40,7 +40,7 @@ export default {
               content: "UI Desgner @ Apple "
             },
             time: {
-              style: "light",
+              style: "light-title",
               content: "02/2018-Present"
             },
             content: {

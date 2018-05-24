@@ -31,11 +31,11 @@ export default {
     return {
       info: {
         name: {
-          style: "bgTitle",
+          style: "big-title",
           content: "Feng HuiWing"
         },
         job: {
-          style: "light",
+          style: "light-title",
           content: "Font-End Engineer"
         },
         location: {
@@ -45,7 +45,7 @@ export default {
       },
       section: {
         title: {
-          style: 'lightTitle',
+          style: 'section-title',
           content: 'Profile'
         },
         list: [

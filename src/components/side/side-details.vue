@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       title: {
-        style: "lightTitle",
+        style: "section-title",
         content: "Contact"
       },
       contact:{
