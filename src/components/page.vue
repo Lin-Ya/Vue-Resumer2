@@ -4,22 +4,17 @@
       <PageProfile></PageProfile>
       <PageSide></PageSide>
     </div>
-    <div class="footer">
-      <PageFooter></PageFooter>
-    </div>
   </div>
 </template>
 
 <script>
 import PageProfile from "./profile/page-profile.vue";
 import PageSide from "./side/page-side.vue";
-import PageFooter from "./footer/page-footer.vue";
 export default {
   name: "page",
   components: {
     PageProfile,
-    PageSide,
-    PageFooter
+    PageSide
   }
 };
 </script>
@@ -36,12 +31,9 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    height: 95%;
+    height: 100%;
     width: 100%;
     overflow: hidden;
-  }
-  .footer {
-    height: 5%;
   }
 }
 </style>

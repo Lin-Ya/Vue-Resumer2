@@ -29,7 +29,8 @@ module.exports = {
       'components': '@/components',
       'base': '@/base',
       'img': '@/assets/img',
-      'less': '@/assets/less'
+      'less': '@/assets/less',
+      'font': '@/assets/font'
     }
   },
   module: {

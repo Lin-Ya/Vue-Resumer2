@@ -34,14 +34,6 @@ export default {
   },
   components: {
     ItemInfo
-  },
-  created() {
-    if (this.group) {
-      this.source = this.group;
-      return;
-    } else {
-      this.source = this.default;
-    }
   }
 };
 </script>
@@ -52,6 +44,9 @@ export default {
   align-items: center;
   margin-top: 20px;
   justify-content: space-between;
+  &:hover .num {
+    opacity: 1;
+  }
   .content {
     position: relative;
     width: 240px;
@@ -74,6 +69,7 @@ export default {
     }
   }
   .num {
+    opacity: 0;
     input {
       width: 2em;
     }
