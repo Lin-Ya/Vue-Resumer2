@@ -3,11 +3,11 @@
     <div class="warper">
       <div class="section-title">
         <ItemInfo :msg="section.title"></ItemInfo>
-        <div class="icon add">+</div>
+        <div class="icon add" @click="addList()">+</div>
       </div>
       <ul class="section-body">
         <li v-for="(list,index) in section.list" :key="index">
-          <div class="icon remove">X</div>
+          <div class="icon remove" @click="deleteList(index)">X</div>
           <ItemInfo v-for="(item,itemIndex) in list" :key="itemIndex" :msg="item"></ItemInfo>
         </li>
       </ul>
@@ -19,16 +19,29 @@
 import ItemInfo from "base/item-info.vue";
 export default {
   data() {
-    return {};
+    return {
+      template: null
+    };
   },
   components: {
     ItemInfo
+  },
+  methods: {
+    deleteList(index){
+      this.section.list.splice(index,1)
+    },
+    addList(){
+      this.section.list.push(this.template)
+    }
   },
   props: {
     section: {
       type: Object,
       required: true
     }
+  },
+  created(){
+    this.template = this.section.list[0]
   }
 };
 </script>
