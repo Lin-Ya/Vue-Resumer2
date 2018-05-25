@@ -69,7 +69,4 @@ export default {
 </script>
 
 <style lang="less" scoped>
-#projects {
-  max-height: 56%;
-}
 </style>
