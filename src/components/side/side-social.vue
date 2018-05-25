@@ -1,8 +1,7 @@
 <template>
   <div id="socail" class="side-cell">
     <div class="warper">
-      <ItemInfo :msg="title"></ItemInfo>
-      <ItemListInfo class="listItem" :lists="contact"></ItemListInfo>
+      <ItemListInfo class="listItem" :title="title" :lists="contact"></ItemListInfo>
     </div>
   </div>
 </template>
@@ -22,11 +21,11 @@ export default {
         style: "section-title",
         content: "Social"
       },
-      contact: {
-        github: {
+      contact: [
+        {
           content: "https://github.com/Lin-Ya"
         }
-      }
+      ]
     };
   }
 };
