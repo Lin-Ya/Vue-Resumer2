@@ -31,10 +31,12 @@ export default {
     box-sizing: border-box;
   }
 }
-ul,ol {
+ul,
+ol {
   list-style: none;
 }
-html,body {
+html,
+body {
   width: 100%;
 }
 #app {
@@ -42,10 +44,11 @@ html,body {
   width: 100%;
   padding: 32px 0;
   .icon {
-       width: 1em; height: 1em;
-       vertical-align: -0.15em;
-       fill: currentColor;
-       overflow: hidden;
-    }
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
 }
 </style>

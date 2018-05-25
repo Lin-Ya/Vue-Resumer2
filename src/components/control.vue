@@ -3,9 +3,8 @@
     <div class="warper">
       <div class="container">
         <div class="logo">
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-dengpaoOff"></use>
-          </svg>
+          <i class="iconfont icon-dengpaoOff"></i>
+          <i class="iconfont icon-dengpaoOn"></i>          
         </div>
         <div class="content">
           <ul>
@@ -41,9 +40,17 @@ export default {};
     position: fixed;
     top: 0;
     left: 0;
-    .icon {
+    .logo {
       width: 48px;
       height: 48px;
+      i {
+        color: blue;
+        background-color: #fff;
+        font-size: 48px;
+        padding: 10px;
+        border: 1px solid red;
+        border-radius: 50%;
+      }
     }
   }
 }
