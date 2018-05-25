@@ -3,7 +3,7 @@
     <div class="warper">
       <div class="hero-info">
         <div class="avatar">
-          <ItemImagePacker></ItemImagePacker>
+          <ItemImagePacker :custom="info.logo"></ItemImagePacker>
         </div>
         <div class="person">
           <ItemInfo :msg="info.name"></ItemInfo>
@@ -20,6 +20,7 @@
 import ItemImagePacker from "base/item-imagePacker.vue";
 import ItemInfo from "base/item-info.vue";
 import SectionGroup from "base/section-group.vue";
+import heroImg from "img/hero.jpg";
 export default {
   name: "hero",
   components: {
@@ -41,7 +42,8 @@ export default {
         location: {
           style: "normal",
           content: "JiangMen GuangDong"
-        }
+        },
+        logo: heroImg
       },
       section: {
         title: {

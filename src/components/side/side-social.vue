@@ -9,6 +9,11 @@
 <script>
 import ItemInfo from "base/item-info.vue";
 import SectionInfo from "base/section-list.vue";
+import zhihuImg from "img/zhihu.png";
+import weiboImg from "img/weibo.png";
+import juejinImg from "img/juejin.png";
+import jianshuImg from "img/jianshu.png";
+
 export default {
   name: "socail",
   components: {
@@ -24,6 +29,22 @@ export default {
       contact: [
         {
           content: "https://github.com/Lin-Ya"
+        },
+        {
+          content: "https://github.com/Lin-Ya",
+          logo: zhihuImg
+        },
+        {
+          content: "https://github.com/Lin-Ya",
+          logo: weiboImg
+        },
+        {
+          content: "https://github.com/Lin-Ya",
+          logo: juejinImg
+        },
+        {
+          content: "https://github.com/Lin-Ya",
+          logo: jianshuImg
         }
       ]
     };
