@@ -46,13 +46,4 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.section-body {
-  li {
-    .remove {
-      right: 0%;
-      top: 50%;
-      transform: translate(100%,-50%);
-    }
-  }
-}
 </style>
