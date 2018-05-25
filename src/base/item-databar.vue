@@ -1,12 +1,12 @@
 <template>
   <div class="databar">
     <div class="content">
-      <ItemInfo :msg="source.name"></ItemInfo>
-      <div class="bar topbar" :style="{width:source.number+'%'}"></div>
+      <ItemInfo :msg="group.name"></ItemInfo>
+      <div class="bar topbar" :style="{width:group.number+'%'}"></div>
       <div class="bar bottombar"></div>
     </div>
     <div class="num">
-      <input contenteditable="true" v-model="source.number" maxlength="2">
+      <input contenteditable="true" v-model="group.number" maxlength="2">
       <span>%</span>
     </div>
   </div>
@@ -35,12 +35,13 @@ export default {
   components: {
     ItemInfo
   },
-  created(){
-    if(this.group){
+  created() {
+    if (this.group) {
       this.source = this.group;
-      return
+      return;
+    } else {
+      this.source = this.default;
     }
-    this.source = this.default
   }
 };
 </script>

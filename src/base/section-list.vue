@@ -3,7 +3,6 @@
     <div class="section-title">
       <ItemInfo :msg="title"></ItemInfo>
       <div class="icon add" @click="addList()">+</div>
-
     </div>
     <ul class="section-body">
       <li v-for="(list,index) in lists">

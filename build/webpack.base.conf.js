@@ -28,7 +28,8 @@ module.exports = {
       '@': resolve('src'),
       'components': '@/components',
       'base': '@/base',
-      'img': '@/assets/img'
+      'img': '@/assets/img',
+      'less': '@/assets/less'
     }
   },
   module: {

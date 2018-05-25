@@ -1,62 +1,54 @@
 <template>
-  <div id="tools"  class="side-cell">
+  <div id="tools" class="side-cell">
     <div class="warper">
-      <ItemInfo :msg="title"></ItemInfo>
+    <SectionBarList :title="title" :lists="dataLists"></SectionBarList>
     </div>
-    <ItemDatabar :group="item.dataGroup" v-for="(item,index) in items" :key="index" ></ItemDatabar>
+    <!-- <ItemDatabar :group="item.dataGroup" v-for="(item,index) in items" :key="index"></ItemDatabar> -->
   </div>
 </template>
 
 <script>
-import ItemInfo from 'base/item-info.vue'
-import ItemDatabar from 'base/item-databar.vue'
+import ItemInfo from "base/item-info.vue";
+import SectionBarList from "base/section-barList.vue";
 export default {
-  name: 'tools',
+  name: "tools",
   components: {
     ItemInfo,
-    ItemDatabar
+    SectionBarList
   },
-  data(){
+  data() {
     return {
       title: {
-        style: 'section-title',
-        content: 'Tools'
+        style: "section-title",
+        content: "Tools"
       },
-      items: [
+      dataLists: [
         {
-          dataGroup: {
-            number: '75',
-            name: {
-              content: 'Visual Studio Code'
-            }
+          number: "75",
+          name: {
+            content: "Visual Studio Code"
           }
         },
         {
-          dataGroup: {
-            number: '75',
-            name: {
-              content: 'Google Chrome'
-            }
+          number: "75",
+          name: {
+            content: "Google Chrome"
           }
         },
         {
-          dataGroup: {
-            number: '80',
-            name: {
-              content: 'Adobe Photoshop'
-            }
+          number: "80",
+          name: {
+            content: "Adobe Photoshop"
           }
         },
         {
-          dataGroup: {
-            number: '65',
-            name: {
-              content: 'Axure'
-            }
+          number: "65",
+          name: {
+            content: "Axure"
           }
         }
       ]
-    }
+    };
   }
 };
 </script>

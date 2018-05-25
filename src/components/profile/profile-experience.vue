@@ -1,15 +1,15 @@
 <template>
   <div id="Experience">
-    <ItemSection :section="section"></ItemSection>
+    <SectionGroup :section="section"></SectionGroup>
   </div>
 </template>
 
 <script>
-import ItemSection from "base/item-section.vue";
+import SectionGroup from "base/section-group.vue";
 export default {
   name: "Experience",
   components: {
-    ItemSection
+    SectionGroup
   },
   data() {
     return {

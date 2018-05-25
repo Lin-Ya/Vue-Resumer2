@@ -11,7 +11,7 @@
           <ItemInfo :msg="info.location"></ItemInfo>
         </div>
       </div>
-      <ItemSection :section="section"></ItemSection>
+      <SectionGroup :section="section"></SectionGroup>
     </div>
   </div>
 </template>
@@ -19,13 +19,13 @@
 <script>
 import ItemImagePacker from "base/item-imagePacker.vue";
 import ItemInfo from "base/item-info.vue";
-import ItemSection from "base/item-section.vue";
+import SectionGroup from "base/section-group.vue";
 export default {
   name: "hero",
   components: {
     ItemImagePacker,
     ItemInfo,
-    ItemSection
+    SectionGroup
   },
   data() {
     return {
