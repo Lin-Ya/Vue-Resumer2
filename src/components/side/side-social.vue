@@ -1,19 +1,19 @@
 <template>
   <div id="socail" class="side-cell">
     <div class="warper">
-      <ItemListInfo class="listItem" :title="title" :lists="contact"></ItemListInfo>
+      <SectionInfo class="listItem" :title="title" :lists="contact"></SectionInfo>
     </div>
   </div>
 </template>
 
 <script>
 import ItemInfo from "base/item-info.vue";
-import ItemListInfo from "base/item-listInfo.vue";
+import SectionInfo from "base/section-list.vue";
 export default {
   name: "socail",
   components: {
     ItemInfo,
-    ItemListInfo
+    SectionInfo
   },
   data() {
     return {
