@@ -1,9 +1,14 @@
 <template>
-  <div class="info">
-    <span contenteditable="true" :class="type">{{msg.content}}</span>
-    <select name="infotype" id="infotype" v-show="selecting">
-      <option :value="item" v-for="(item, index) in typeList" :key="index" @change="switchType($event)">{{item}}</option>
-    </select>
+  <div class="info" @contextmenu.prevent="showMenu($event)">
+    <div class="content" :class="{'editing':selecting}">
+      <span contenteditable="true" :class="change">{{msg.content}}</span>
+    </div>
+    <div class="menu" v-show="selecting">
+      <select name="infotype" id="infotype" v-model="type" @change="switchType($event)">
+        <option :value="item" v-for="(item, index) in typeList" :key="index">{{item}}</option>
+      </select>
+      <span class="cancel" @click="restore()">Cancel</span>
+    </div>
   </div>
 </template>
 
@@ -37,8 +42,21 @@ export default {
     }
   },
   methods: {
+    showMenu(e) {
+      this.selecting = true;
+    },
     switchType(e) {
-      console.log(e);
+      let selected = e.srcElement.selectedOptions[0];
+      this.type = selected.label;
+      this.restore()
+    },
+    restore(){
+      this.selecting = false;
+    }
+  },
+  computed: {
+    change: function() {
+      return this.type;
     }
   }
 };
@@ -83,13 +101,40 @@ export default {
       line-height: 24px;
     }
   }
-  select {
-    border: 1px solid red;
-    width: 80px;
+  .editing span {
+    filter: blur(2px);
+  }
+  .menu {
     position: absolute;
-    right: 0;
+    width: auto;
+    display: flex;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    text-align: center;
+    select {
+      border: 1px solid #bababa;
+      border-radius: 8px;
+      height: 32px;
+      width: 160px;
+      margin-right: 8px;
+    }
+    .cancel {
+      color: red;
+      background-color: #fff;
+      border-radius: 8px;
+      border: 1px solid #bababa;
+      height: 32px;
+      width: 72px;
+      display: block;
+      cursor: pointer;
+      transition: all 0.5s;
+      &:hover {
+        background-color: red;
+        color: #fff;
+      }
+    }
   }
 }
 </style>
