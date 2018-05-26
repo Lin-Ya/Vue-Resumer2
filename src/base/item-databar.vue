@@ -61,7 +61,7 @@ export default {
     }
     .topbar {
       z-index: 2;
-      background-color: red;
+      background-color: #38a1db;
       transition: all 0.3s;
     }
     .bottombar {

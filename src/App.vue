@@ -9,7 +9,6 @@
 
 <script>
 import "normalize.css";
-import "less/main.less";
 import Page from "components/page.vue";
 import Control from "components/control.vue";
 export default {
@@ -46,8 +45,8 @@ export default {
       console.log(index);
     }
   },
-  created(){
-    this.currentTheme = this.colorLists[0].title
+  created() {
+    this.currentTheme = this.colorLists[0].title;
   }
 };
 </script>
@@ -73,16 +72,17 @@ html,
 body {
   width: 100%;
 }
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 #app {
   height: 100%;
   width: 100%;
   padding: 32px 0;
-  .icon {
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
-  }
+  background-color: #38a1db;
 }
 </style>

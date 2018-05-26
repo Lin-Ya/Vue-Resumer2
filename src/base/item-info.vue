@@ -77,10 +77,10 @@ export default {
       line-height: 40px;
     }
     &.light {
-      color: red;
+      color: #38a1db;
     }
     &.light-title {
-      color: red;
+      color: #38a1db;
       font-weight: bolder;
     }
     &.small-title {
@@ -92,7 +92,7 @@ export default {
       font-size: 24px;
     }
     &.section-title {
-      color: red;
+      color: #38a1db;
       font-weight: bolder;
       line-height: 32px;
       font-size: 24px;
@@ -122,7 +122,7 @@ export default {
       margin-right: 8px;
     }
     .cancel {
-      color: red;
+      color: #38a1db;
       background-color: #fff;
       border-radius: 8px;
       border: 1px solid #d1d1d1;
@@ -132,7 +132,7 @@ export default {
       cursor: pointer;
       transition: all 0.5s;
       &:hover {
-        background-color: red;
+        background-color: #38a1db;
         color: #fff;
       }
     }

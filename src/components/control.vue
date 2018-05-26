@@ -1,30 +1,23 @@
 <template>
-  <div id="control">
+  <div id="control" class="Akairo">
     <div class="warper">
       <div class="container">
         <div class="logo" :class="{on:showMenu}" @click="switchMenu()">
-          <i class="iconfont icon-dengpaoOff" v-show="!showMenu"></i>
-          <i class="iconfont icon-dengpaoOn" v-show="showMenu"></i>
+          <i class="iconfont icon-dengpaoOn" v-show="!showMenu"></i>
+          <i class="iconfont icon-dengpaoOff" v-show="showMenu"></i>
         </div>
         <div class="content" v-show="showMenu">
           <ul>
             <li :class="{active:showingIndex ===0}">
               <h3 @click="showThis(0)">How to use</h3>
-              <p v-show="showingIndex === 0">I'm a Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit metus in libero rutrum congue aliquam eu libero. Donec tristique est pharetra fringilla sollicitudin. Etiam eu ipsum vitae nulla tincidunt</p>
+              <p v-show="showingIndex === 0">Click on the box to enter content. Right-click to switch content's style.</p>
             </li>
-            <li :class="{active:showingIndex ===1}">
+            <!-- <li :class="{active:showingIndex ===1}">
               <h3 @click="showThis(1)">Switch theme</h3>
               <p class="colorLists" v-show="showingIndex === 1">
-                <span class="colorOption" 
-                      :key="index"
-                      :class="{active: currentTheme === index}"
-                      :title="list.title"
-                      @click="switchColor(index)"
-                      :style="{backgroundColor:list.color}"
-                      v-for="(list,index) in colorLists"
-                      ></span>
+                <span class="colorOption" :key="index" :class="{active: currentTheme === index}" :title="list.title" @click="switchColor(index)" :style="{backgroundColor:list.color}" v-for="(list,index) in colorLists"></span>
               </p>
-            </li>
+            </li> -->
             <li>
               <h3>Save as Image-file</h3>
             </li>
@@ -64,9 +57,9 @@ export default {
         this.showingIndex = index;
       }
     },
-    switchColor(index){
-      this.$emit('switchTheme',index)
-      this.currentTheme = index
+    switchColor(index) {
+      this.$emit("switchTheme", index);
+      this.currentTheme = index;
     }
   }
 };
@@ -89,15 +82,14 @@ export default {
         width: 72px;
         border-radius: 50%;
         position: relative;
-        // border: 1px solid red;
-        color: red;
+        color: #155272;
         transition: all 0.3s;
         &:hover {
-          background-color: red;
+          background-color: #38a1db;
           color: #fff;
         }
         &.on {
-          background-color: red;
+          background-color: #38a1db;
           color: #fff;
         }
         i {
@@ -117,13 +109,13 @@ export default {
             margin: 24px 0;
             padding: 8px 0;
             border-radius: 8px;
-            color: red;
+            color: #38a1db;
             background-color: #fff;
             cursor: pointer;
             transition: all 0.3s;
             &:hover {
               box-shadow: 1px 1px 5px 3px #063f1479;
-              background-color: red;
+              background-color: #38a1db;
               color: #fff;
             }
           }
@@ -150,21 +142,21 @@ export default {
                 height: 45px;
                 border-radius: 50%;
                 transform: rotateZ(45deg);
-                background-color:#fff;
+                background-color: #fff;
               }
             }
           }
           &.active {
             height: 100%;
             h3 {
-              background-color: red;
+              background-color: #38a1db;
               color: #fff;
             }
             p {
               padding: 16px;
               border-radius: 8px;
               background-color: #d1d1d165;
-              text-align: justify;
+              text-align: left;
             }
           }
         }

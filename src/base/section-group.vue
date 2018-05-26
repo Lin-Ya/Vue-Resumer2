@@ -63,9 +63,9 @@ export default {
     width: 32px;
     position: absolute;
     background-color: #fff;
-    color: red;
+    color: #38a1db;
     &:hover {
-      background-color: red;
+      background-color: #38a1db;
       color: #fff;
     }
   }
