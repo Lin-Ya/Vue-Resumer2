@@ -19,10 +19,10 @@
               </p>
             </li> -->
             <li>
-              <h3>Save as Image-file</h3>
+              <h3 @click="saveIMG()">Save as Image-file</h3>
             </li>
             <li>
-              <h3>Save as PDF-file</h3>
+              <h3 @click="savePDF()">Save as PDF-file</h3>
             </li>
           </ul>
         </div>
@@ -33,6 +33,9 @@
 
 <script>
 import "font/iconfont.css";
+import html2canvas from "html2canvas";
+import FileSaver from "file-saver";
+import jsPDF from "jspdf";
 export default {
   data() {
     return {
@@ -57,10 +60,30 @@ export default {
         this.showingIndex = index;
       }
     },
-    switchColor(index) {
-      this.$emit("switchTheme", index);
-      this.currentTheme = index;
+    saveIMG() {
+      let resume = document.querySelector("#page");
+      html2canvas(resume).then(canvas => {
+        canvas.toBlob(blob => {
+          FileSaver.saveAs(blob, "Resume.png");
+        });
+      });
+    },
+    savePDF() {
+      let resume = document.querySelector("#page");
+      html2canvas(resume, {
+        dpi: 60000,
+        background: '#fff'
+      }).then(canvas => {
+        let imgData = canvas.toDataURL("image/jpeg");
+        let doc = new jsPDF("p", "mm", "a4");
+        doc.addImage(imgData, "JPEG", 0, 0, 210, 297);
+        doc.save("Resume.pdf");
+      });
     }
+    // switchColor(index) {
+    //   this.$emit("switchTheme", index);
+    //   this.currentTheme = index;
+    // }
   }
 };
 </script>
