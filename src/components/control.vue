@@ -72,7 +72,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 #control {
   .warper {
     position: fixed;
@@ -163,7 +163,7 @@ export default {
             p {
               padding: 16px;
               border-radius: 8px;
-              background-color: #bababa65;
+              background-color: #d1d1d165;
               text-align: justify;
             }
           }

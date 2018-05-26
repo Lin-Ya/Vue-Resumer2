@@ -19,14 +19,14 @@ export default {
 };
 </script>
 
-<style scoped lang="less">
+<style  lang="less">
 #page {
   font-size: 16px;
   width: 1240px;
   height: 1754px;
   margin: 0 auto;
   background-color: #fff;
-  box-shadow: 1px 1px 0px 2px #5a5a5a6e;
+  box-shadow: 1px 1px 4px 1px #5a5a5a6e;
   .main {
     display: flex;
     flex-direction: row;

@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import "less/theme.less";
 export default {
   name: "item-info",
   props: {
@@ -62,7 +63,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .info {
   width: 100%;
   margin: 4px 0;
@@ -114,7 +115,7 @@ export default {
     align-items: center;
     text-align: center;
     select {
-      border: 1px solid #bababa;
+      border: 1px solid #d1d1d1;
       border-radius: 8px;
       height: 32px;
       width: 160px;
@@ -124,7 +125,7 @@ export default {
       color: red;
       background-color: #fff;
       border-radius: 8px;
-      border: 1px solid #bababa;
+      border: 1px solid #d1d1d1;
       height: 32px;
       width: 72px;
       display: block;

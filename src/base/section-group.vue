@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import "less/theme.less";
 import ItemInfo from "base/item-info.vue";
 export default {
   data() {
@@ -46,7 +47,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .warper {
   margin-top: 24px;
   .icon {
@@ -82,7 +83,7 @@ export default {
   }
   .section-body {
     margin-top: 24px;
-    border-left: 1px solid #bababa;
+    border-left: 1px solid #d1d1d1;
     li {
       padding: 0 32px 8px 32px;
       position: relative;

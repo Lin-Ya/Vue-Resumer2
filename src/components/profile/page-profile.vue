@@ -26,7 +26,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 #profile {
   width: 64%;
   padding: 40px 48px;

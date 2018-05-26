@@ -15,7 +15,7 @@
 
 </template>
 
-<style lang="less" scoped>
+<style lang="less">
 .listInfo {
   display: flex;
   flex-direction: column;
@@ -36,6 +36,7 @@
 </style>
 
 <script>
+import "less/theme.less";
 import ItemInfo from "base/item-info.vue";
 import ItemImagePacker from "base/item-imagePacker.vue";
 import "less/section-base.less";

@@ -20,11 +20,22 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 #side {
-  border: 1px solid red;
   width: 36%;
   padding: 80px 48px;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: '';
+    display: block;
+    height: 90%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: -40px;
+    width: 1px;
+    border-left: 1px solid #d1d1d1;
+  }
   .side-cell {
     padding-bottom: 48px;
   }

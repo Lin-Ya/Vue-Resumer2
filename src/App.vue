@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <page></page>
-    <control :colorLists="colorLists" @switchTheme="switchTheme"></control>
+    <div class="warper" :class="currentTheme">
+      <page></page>
+      <control :colorLists="colorLists" @switchTheme="switchTheme"></control>
+    </div>
   </div>
 </template>
 
 <script>
 import "normalize.css";
+import "less/main.less";
 import Page from "components/page.vue";
 import Control from "components/control.vue";
 export default {
@@ -15,7 +18,7 @@ export default {
     Page,
     Control
   },
-  data(){
+  data() {
     return {
       colorLists: [
         {
@@ -34,13 +37,17 @@ export default {
           color: "#007b43",
           title: "Tokiwairo"
         }
-      ]
-    }
+      ],
+      currentTheme: null
+    };
   },
   methods: {
-    switchTheme(index){
-      console.log(index)
+    switchTheme(index) {
+      console.log(index);
     }
+  },
+  created(){
+    this.currentTheme = this.colorLists[0].title
   }
 };
 </script>

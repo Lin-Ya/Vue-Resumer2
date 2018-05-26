@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import "less/theme.less";
 import ItemInfo from "base/item-info.vue";
 export default {
   data() {
@@ -38,7 +39,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .databar {
   display: flex;
   align-items: center;
