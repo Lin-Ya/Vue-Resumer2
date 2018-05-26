@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <page></page>
-    <control></control>
+    <control :colorLists="colorLists" @switchTheme="switchTheme"></control>
   </div>
 </template>
 
@@ -14,6 +14,33 @@ export default {
   components: {
     Page,
     Control
+  },
+  data(){
+    return {
+      colorLists: [
+        {
+          color: "#c53d43",
+          title: "Akairo"
+        },
+        {
+          color: "#38a1db",
+          title: "Tsuyukusairo"
+        },
+        {
+          color: "#ed6d3d",
+          title: "Kakiiro"
+        },
+        {
+          color: "#007b43",
+          title: "Tokiwairo"
+        }
+      ]
+    }
+  },
+  methods: {
+    switchTheme(index){
+      console.log(index)
+    }
   }
 };
 </script>

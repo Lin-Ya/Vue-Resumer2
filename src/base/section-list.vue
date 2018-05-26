@@ -2,11 +2,11 @@
   <div class="listInfo">
     <div class="section-title">
       <ItemInfo :msg="title"></ItemInfo>
-      <div class="icon add" @click="addList()">+</div>
+      <div class="myicon add" @click="addList()">+</div>
     </div>
     <ul class="section-body">
       <li v-for="(list,index) in lists" :key="index">
-        <div class="icon remove" @click="deleteList(index)">X</div>
+        <div class="myicon remove" @click="deleteList(index)">X</div>
         <ItemImagePacker class="imgPacker" :custom="list.logo"></ItemImagePacker>
         <ItemInfo class="content" :msg="list"></ItemInfo>
       </li>

@@ -3,11 +3,11 @@
     <div class="warper">
       <div class="section-title">
         <ItemInfo :msg="section.title"></ItemInfo>
-        <div class="icon add" @click="addList()">+</div>
+        <div class="myicon add" @click="addList()">+</div>
       </div>
       <ul class="section-body">
         <li v-for="(list,index) in section.list" :key="index">
-          <div class="icon remove" @click="deleteList(index)">X</div>
+          <div class="myicon remove" @click="deleteList(index)">X</div>
           <ItemInfo v-for="(item,itemIndex) in list" :key="itemIndex" :msg="item"></ItemInfo>
         </li>
       </ul>

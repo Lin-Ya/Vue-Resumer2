@@ -2,12 +2,12 @@
   <div class="barList">
     <div class="section-title">
       <ItemInfo :msg="title"></ItemInfo>
-      <div class="icon add" @click="addList()">+</div>
+      <div class="myicon add" @click="addList()">+</div>
     </div>
     <ul class="section-body">
       <li v-for="(list,index) in dataList" :key="index">
         <ItemDatabar :group="list"></ItemDatabar>
-        <div class="icon remove" @click="deleteList(index)">X</div>
+        <div class="myicon remove" @click="deleteList(index)">X</div>
       </li>
     </ul>
   </div>

@@ -2,20 +2,31 @@
   <div id="control">
     <div class="warper">
       <div class="container">
-        <div class="logo">
-          <i class="iconfont icon-dengpaoOff"></i>
-          <i class="iconfont icon-dengpaoOn"></i>          
+        <div class="logo" :class="{on:showMenu}" @click="switchMenu()">
+          <i class="iconfont icon-dengpaoOff" v-show="!showMenu"></i>
+          <i class="iconfont icon-dengpaoOn" v-show="showMenu"></i>
         </div>
-        <div class="content">
+        <div class="content" v-show="showMenu">
           <ul>
-            <li>
-              <h3>How to use</h3>
+            <li :class="{active:showingIndex ===0}">
+              <h3 @click="showThis(0)">How to use</h3>
+              <p v-show="showingIndex === 0">I'm a Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit metus in libero rutrum congue aliquam eu libero. Donec tristique est pharetra fringilla sollicitudin. Etiam eu ipsum vitae nulla tincidunt</p>
+            </li>
+            <li :class="{active:showingIndex ===1}">
+              <h3 @click="showThis(1)">Switch theme</h3>
+              <p class="colorLists" v-show="showingIndex === 1">
+                <span class="colorOption" 
+                      :key="index"
+                      :class="{active: currentTheme === index}"
+                      :title="list.title"
+                      @click="switchColor(index)"
+                      :style="{backgroundColor:list.color}"
+                      v-for="(list,index) in colorLists"
+                      ></span>
+              </p>
             </li>
             <li>
-              <h3>Switch theme</h3>
-            </li>
-            <li>
-              <h3>save as Image-file</h3>
+              <h3>Save as Image-file</h3>
             </li>
             <li>
               <h3>Save as PDF-file</h3>
@@ -29,27 +40,134 @@
 
 <script>
 import "font/iconfont.css";
-import "font/iconfont.js";
-export default {};
+export default {
+  data() {
+    return {
+      showMenu: false,
+      showingIndex: -1,
+      currentTheme: 0
+    };
+  },
+  props: {
+    colorLists: {
+      type: Array
+    }
+  },
+  methods: {
+    switchMenu() {
+      this.showMenu = !this.showMenu;
+    },
+    showThis(index) {
+      if (index === this.showingIndex) {
+        this.showingIndex = -1;
+      } else {
+        this.showingIndex = index;
+      }
+    },
+    switchColor(index){
+      this.$emit('switchTheme',index)
+      this.currentTheme = index
+    }
+  }
+};
 </script>
 
 <style lang="less" scoped>
 #control {
-  .container {
-    border: 1px solid blue;
+  .warper {
     position: fixed;
-    top: 0;
-    left: 0;
-    .logo {
-      width: 48px;
-      height: 48px;
-      i {
-        color: blue;
-        background-color: #fff;
-        font-size: 48px;
-        padding: 10px;
-        border: 1px solid red;
+    top: 80px;
+    left: 32px;
+    width: 240px;
+    text-align: center;
+    .container {
+      padding: 4px;
+      .logo {
+        cursor: pointer;
+        margin: 16px auto;
+        height: 72px;
+        width: 72px;
         border-radius: 50%;
+        position: relative;
+        // border: 1px solid red;
+        color: red;
+        transition: all 0.3s;
+        &:hover {
+          background-color: red;
+          color: #fff;
+        }
+        &.on {
+          background-color: red;
+          color: #fff;
+        }
+        i {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 48px;
+          width: 48px;
+          line-height: 48px;
+        }
+      }
+      .content {
+        padding: 8px;
+        li {
+          h3 {
+            margin: 24px 0;
+            padding: 8px 0;
+            border-radius: 8px;
+            color: red;
+            background-color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+              box-shadow: 1px 1px 5px 3px #063f1479;
+              background-color: red;
+              color: #fff;
+            }
+          }
+          p {
+            display: flex;
+            justify-content: space-between;
+            .colorOption {
+              cursor: pointer;
+              display: block;
+              border-radius: 8px;
+              width: 32px;
+              height: 32px;
+              position: relative;
+              &:hover {
+                box-shadow: 1px 1px 5px 1px #063f1479;
+              }
+              &.active::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 6px;
+                top: -25%;
+                left: 40%;
+                height: 45px;
+                border-radius: 50%;
+                transform: rotateZ(45deg);
+                background-color:#fff;
+              }
+            }
+          }
+          &.active {
+            height: 100%;
+            h3 {
+              background-color: red;
+              color: #fff;
+            }
+            p {
+              padding: 16px;
+              border-radius: 8px;
+              background-color: #bababa65;
+              text-align: justify;
+            }
+          }
+        }
       }
     }
   }
