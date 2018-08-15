@@ -3,8 +3,7 @@ title: 401_初次使用Vue.js的一些心得
 tags: Vue.js,心得
 grammar_cjkRuby: true
 ---
-401_初次使用Vue.js的一些心得
-===
+
 我在上周刚使用 vue.js + 饿了么ui 制作了一个在线简历编辑器的网站，实现了登录注册、在线编辑简历，增删简历内容、引入Vuex进行状态管理。[预览地址](https://lin-ya.github.io/Vue-Resumer2/dist)
 通过这个项目，我掌握了vue单文件组件对网页进行模块化封装、导入，vue组件之间的通信，利用vuex实现数据单向绑定（为了能更好地控制数据的流动）。趁着热乎劲，赶紧写篇总结。
 
